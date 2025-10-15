@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0keav43gfj42"
+path="res://.godot/imported/0 - Omar Rodriguez-Lopez.mp3-f170f6247ba86f5bb4b5f80af64f6b2c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/0 - Omar Rodriguez-Lopez.mp3"
+dest_files=["res://.godot/imported/0 - Omar Rodriguez-Lopez.mp3-f170f6247ba86f5bb4b5f80af64f6b2c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
