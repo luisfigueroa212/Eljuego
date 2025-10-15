@@ -1,5 +1,3 @@
-res://Scenes/menu.tscn
-res://Assets/Fonts/player.tres
 res://Scenes/game.tscn
+res://Assets/Fonts/player.tres
 res://Scenes/Player.gd
-res://Scenes/cambio_escenario.gd
