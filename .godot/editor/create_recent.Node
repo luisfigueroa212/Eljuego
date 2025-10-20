@@ -1,6 +1,7 @@
 TileMapLayer
-TileMap
 Node2D
+AnimatedSprite2D
+TileMap
 MeshInstance2D
 CollisionShape2D
 Area2D
@@ -8,7 +9,6 @@ CPUParticles2D
 GPUParticles2D
 AudioStreamPlayer2D
 Sprite2D
-AnimatedSprite2D
 Node
 ParallaxLayer
 ParallaxBackground

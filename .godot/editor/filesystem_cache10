@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1760574786
+::res://::1760997110
 36.png::CompressedTexture2D/CompressedTexture2D::6853145006009552882::1757972459::1757972460::1::::<><><>0<>0<>286f3a24eace3fc932d5eecaf327ceb7<>res://.godot/imported/36.png-57e9f9b5ef189d345bf855271e40da44.ctex::
-export_presets.cfg::TextFile/TextFile::-1::1758765461::0::1::::<><><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1760583085::0::1::::<><><>0<>0<><>::
 GettyImages-1153695460.webp::CompressedTexture2D/CompressedTexture2D::1953942801761695623::1758765220::1758765221::1::::<><><>0<>0<>6e343eea6ec1e8c3efe0b46b67a4ffb8<>res://.godot/imported/GettyImages-1153695460.webp-e4eb728fc60660f747b5f0fcd1784ac3.ctex::
 icon.svg::CompressedTexture2D/CompressedTexture2D::2684460392462305578::1755989275::1755989288::1::::<><><>0<>0<>ed69c9555a98c0b0267f26c249dd32d6<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://addons/::1760571621
@@ -12,7 +12,7 @@ plugin.cfg::TextFile/TextFile::-1::1757797230::0::1::::<><><>0<>0<><>::
 THIRDPARTY.md::TextFile/TextFile::-1::1757797230::0::1::::<><><>0<>0<><>::
 ::res://addons/godot-git-plugin/linux/::1760571621
 ::res://addons/godot-git-plugin/macos/::1760571621
-::res://addons/godot-git-plugin/win64/::1760574780
+::res://addons/godot-git-plugin/win64/::1760997103
 ::res://Assets/::1760571644
 ::res://Assets/Backrounds/::1760571622
 ::res://Assets/Backrounds/MountainsLayers/::1760571622
@@ -5161,22 +5161,23 @@ player-stand.png::CompressedTexture2D/CompressedTexture2D::3156740086829703534::
 ::res://Assets/Descargados (itch.io)/Packs/warped-Caves/PSD/sprites/enemies/::1760571643
 ::res://Assets/Descargados (itch.io)/Packs/warped-Caves/PSD/sprites/FX/::1760571643
 ::res://Assets/Descargados (itch.io)/Packs/warped-Caves/PSD/sprites/player/::1760571643
-::res://Assets/Fonts/::1760572129
+::res://Assets/Fonts/::1760574987
 CloisterBlack.ttf::FontFile/FontFile::1966476231084912898::1755995463::1756005138::1::::<><><>0<>0<>f50dd71f230ed4adde3472c35795204a<>res://.godot/imported/CloisterBlack.ttf-f743f32b344f786230e82f13cb120d67.fontdata::
-player.tres::StyleBoxFlat::7142782209512791333::1760572129::0::1::::<><><>0<>0<><>::
+player.tres::StyleBoxFlat::7142782209512791333::1760574987::0::1::::<><><>0<>0<><>::
 Seagram tfb.ttf::FontFile/FontFile::1261256305187380351::1755998421::1755998421::1::::<><><>0<>0<>611975ea5e71fda4dbd2f10e7ede19b0<>res://.godot/imported/Seagram tfb.ttf-ce763b14e309d8efdab00b1d60f0f34c.fontdata::
-::res://Assets/Fx sounds/::1760571643
+::res://Assets/Fx sounds/::1760575067
 406740__kretopi__steponwood-006.wav::AudioStreamWAV/AudioStreamWAV::4077193147374233099::1756053690::1756055256::1::::<><><>0<>0<>e3895e532e27da66846a7225c22690c6<>res://.godot/imported/406740__kretopi__steponwood-006.wav-d074322f57212682b462f492decc5e63.sample::
-Pasos.wav::AudioStreamWAV/AudioStreamWAV::7459200906413933042::1759963315::1759963317::1::::<><><>0<>0<>441efb496fac077a3c34f49983f09047<>res://.godot/imported/Pasos.wav-e0ca9cbac34104f9567f171a4a69edc9.sample::
 ::res://Assets/Music/::1760571644
 0 - Omar Rodriguez-Lopez.mp3::AudioStreamMP3/AudioStreamMP3::6548450252918774241::1756000131::1756000132::1::::<><><>0<>0<>937394f124f2af5016569b831d4fa441<>res://.godot/imported/0 - Omar Rodriguez-Lopez.mp3-f170f6247ba86f5bb4b5f80af64f6b2c.mp3str::
-::res://Scenes/::1760572129
+::res://Scenes/::1760583332
 area_2d.gd::GDScript/GDScript::7377462463977411251::1757974803::0::1::::<>Area2D<><>0<>0<><>::
 cambio_escenario.gd::GDScript/GDScript::2074757400413007598::1760569644::0::1::::<>Area2D<><>0<>0<><>::
-game.tscn::PackedScene::758298717284433537::1760572129::0::1::::<><><>0<>0<><>::uid://crltpx3qpqaay::::res://Scenes/Player.gd<>uid://bskd8mpe33kr3::::res://Assets/Characters/Sprite Sheet/1. Idle 48 x 48.png<>uid://dg4g05hvaw5ag::::res://Assets/Characters/Sprite Sheet/3. Jump 48 x 48.png<>uid://bormnpf8s2w8k::::res://Assets/Characters/Sprite Sheet/4. Fall 48 x 48.png<>uid://fpemwa2ng26q::::res://Assets/Characters/Sprite Sheet/2. Run 48 x 48.png<>uid://dddxy1vrksn04::::res://Scenes/area_2d.gd<>uid://23rfgixxh2el::::res://GettyImages-1153695460.webp<>uid://4ta7lwjt3phu::::res://Scenes/cambio_escenario.gd
-menu.tscn::PackedScene/PackedScene::891042483542855353::1760570021::0::1::::<><><>0<>0<><>::uid://dl552q6r8llgl::::res://Scenes/new_theme.tres<>uid://6p2yl4ya1301::::res://Scripts/menu.gd<>uid://cfht14dvq1n81::::res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/town.png<>uid://blg4x3fx7uyec::::res://Scripts/parallax_layer1.gd<>uid://5hylgxpweqxi::::res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/clouds.png<>uid://bfddmd7t7ak71::::res://Scripts/parallax_layer_2.gd<>uid://dxjs1s2ge2yl0::::res://Assets/Backrounds/MountainsLayers/trees.png<>uid://r77ybm4hrrbb::::res://Assets/Fonts/Seagram tfb.ttf<>uid://c81atx2n8gewj::::res://Assets/Fonts/player.tres<>uid://bgj150m7spkgi::::res://Scripts/parallax_layer_3.gd<>uid://c0keav43gfj42::::res://Assets/Music/0 - Omar Rodriguez-Lopez.mp3<>uid://bbku1dn8s43l5::::res://Scripts/musica_menu.gd
+camera_2d.gd::GDScript::9002329557208955152::1760577931::0::1::::<>Camera2D<><>0<>0<><>::
+game.tscn::PackedScene::758298717284433537::1760583332::0::1::::<><><>0<>0<><>::uid://crltpx3qpqaay::::res://Scenes/Player.gd<>uid://rmpq3wfgfdgq::::res://Assets/Descargados (itch.io)/Environments/Junk Wastelands Files/layers/middle.png<>uid://dyj3u56ho5340::::res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/tiles.png<>uid://bskd8mpe33kr3::::res://Assets/Characters/Sprite Sheet/1. Idle 48 x 48.png<>uid://dg4g05hvaw5ag::::res://Assets/Characters/Sprite Sheet/3. Jump 48 x 48.png<>uid://bormnpf8s2w8k::::res://Assets/Characters/Sprite Sheet/4. Fall 48 x 48.png<>uid://fpemwa2ng26q::::res://Assets/Characters/Sprite Sheet/2. Run 48 x 48.png<>uid://dddxy1vrksn04::::res://Scenes/area_2d.gd<>uid://23rfgixxh2el::::res://GettyImages-1153695460.webp<>uid://4ta7lwjt3phu::::res://Scenes/cambio_escenario.gd<>uid://bln3cq57hux64::::res://Assets/Descargados (itch.io)/Environments/night-town-background-files/layers/night-town-background-clouds.png<>uid://d1i2b10pa0dxo::::res://Scenes/camera_2d.gd<>uid://cp6op44lmlf74::::res://Assets/Descargados (itch.io)/Environments/space_background_pack/Blue Version/layered/prop-planet-big.png<>uid://6rncp8m5dhkk::::res://Assets/Descargados (itch.io)/Environments/night-town-background-files/layers/night-town-background-sky.png
+menu.tscn::PackedScene::891042483542855353::1760582973::0::1::::<><><>0<>0<><>::uid://dl552q6r8llgl::::res://Scenes/new_theme.tres<>uid://6p2yl4ya1301::::res://Scripts/menu.gd<>uid://cfht14dvq1n81::::res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/town.png<>uid://blg4x3fx7uyec::::res://Scripts/parallax_layer1.gd<>uid://5hylgxpweqxi::::res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/clouds.png<>uid://bfddmd7t7ak71::::res://Scripts/parallax_layer_2.gd<>uid://dxjs1s2ge2yl0::::res://Assets/Backrounds/MountainsLayers/trees.png<>uid://r77ybm4hrrbb::::res://Assets/Fonts/Seagram tfb.ttf<>uid://c81atx2n8gewj::::res://Assets/Fonts/player.tres<>uid://bgj150m7spkgi::::res://Scripts/parallax_layer_3.gd<>uid://c0keav43gfj42::::res://Assets/Music/0 - Omar Rodriguez-Lopez.mp3<>uid://bbku1dn8s43l5::::res://Scripts/musica_menu.gd
 new_theme.tres::Theme/Theme::7995141279017364555::1756005137::0::1::::<><><>0<>0<><>::uid://3attud015vne::::res://Assets/Fonts/CloisterBlack.ttf
-Player.gd::GDScript::5989941526337764104::1760572129::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Player.gd::GDScript::5989941526337764104::1760582891::0::1::::<>CharacterBody2D<><>0<>0<><>::
+scene2.tscn::PackedScene::601692516110817119::1760582974::0::1::::<><><>0<>0<><>::uid://6rncp8m5dhkk::::res://Assets/Descargados (itch.io)/Environments/night-town-background-files/layers/night-town-background-sky.png<>uid://bln3cq57hux64::::res://Assets/Descargados (itch.io)/Environments/night-town-background-files/layers/night-town-background-clouds.png<>uid://rmpq3wfgfdgq::::res://Assets/Descargados (itch.io)/Environments/Junk Wastelands Files/layers/middle.png<>uid://crltpx3qpqaay::::res://Scenes/Player.gd<>uid://bormnpf8s2w8k::::res://Assets/Characters/Sprite Sheet/4. Fall 48 x 48.png<>uid://bskd8mpe33kr3::::res://Assets/Characters/Sprite Sheet/1. Idle 48 x 48.png<>uid://dg4g05hvaw5ag::::res://Assets/Characters/Sprite Sheet/3. Jump 48 x 48.png<>uid://fpemwa2ng26q::::res://Assets/Characters/Sprite Sheet/2. Run 48 x 48.png<>uid://dyj3u56ho5340::::res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/tiles.png<>uid://4ta7lwjt3phu::::res://Scenes/cambio_escenario.gd<>uid://cp6op44lmlf74::::res://Assets/Descargados (itch.io)/Environments/space_background_pack/Blue Version/layered/prop-planet-big.png<>uid://d1i2b10pa0dxo::::res://Scenes/camera_2d.gd
 state_machine.tscn::PackedScene/PackedScene::832093387982920331::1756076002::0::1::::<><><>0<>0<><>::
 ::res://Scripts/::1760571644
 menu.gd::GDScript/GDScript::2208502660595997548::1756055293::0::1::::<>Control<><>0<>0<><>::
