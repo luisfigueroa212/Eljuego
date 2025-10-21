@@ -1387,7 +1387,7 @@ script = ExtResource("1_3dryh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 z_index = 1
-position = Vector2(-268, 227)
+position = Vector2(-233, 49)
 sprite_frames = SubResource("SpriteFrames_wowpa")
 animation = &"Idle"
 frame_progress = 0.404654
