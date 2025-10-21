@@ -2,15 +2,15 @@
 
 [ext_resource type="Theme" uid="uid://dl552q6r8llgl" path="res://Scenes/new_theme.tres" id="1_q3rjx"]
 [ext_resource type="Script" uid="uid://6p2yl4ya1301" path="res://Scripts/menu.gd" id="2_6swd7"]
-[ext_resource type="Texture2D" uid="uid://cfht14dvq1n81" path="res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/town.png" id="3_7qvly"]
+[ext_resource type="Texture2D" uid="uid://d3alqt1imds1v" path="res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/town.png" id="3_7qvly"]
 [ext_resource type="Script" uid="uid://blg4x3fx7uyec" path="res://Scripts/parallax_layer1.gd" id="3_rfqti"]
-[ext_resource type="Texture2D" uid="uid://5hylgxpweqxi" path="res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/clouds.png" id="4_rfqti"]
+[ext_resource type="Texture2D" uid="uid://b0mue1jnsy7v6" path="res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/clouds.png" id="4_rfqti"]
 [ext_resource type="Script" uid="uid://bfddmd7t7ak71" path="res://Scripts/parallax_layer_2.gd" id="5_g8i7c"]
-[ext_resource type="Texture2D" uid="uid://dxjs1s2ge2yl0" path="res://Assets/Backrounds/MountainsLayers/trees.png" id="5_q3rjx"]
-[ext_resource type="FontFile" uid="uid://r77ybm4hrrbb" path="res://Assets/Fonts/Seagram tfb.ttf" id="6_23t3j"]
+[ext_resource type="Texture2D" uid="uid://cppbm2dflr8ak" path="res://Assets/Backrounds/MountainsLayers/trees.png" id="5_q3rjx"]
+[ext_resource type="FontFile" uid="uid://p4u17tq3dm5f" path="res://Assets/Fonts/Seagram tfb.ttf" id="6_23t3j"]
 [ext_resource type="StyleBox" uid="uid://c81atx2n8gewj" path="res://Assets/Fonts/player.tres" id="7_8ph6h"]
 [ext_resource type="Script" uid="uid://bgj150m7spkgi" path="res://Scripts/parallax_layer_3.gd" id="7_23t3j"]
-[ext_resource type="AudioStream" uid="uid://c0keav43gfj42" path="res://Assets/Music/0 - Omar Rodriguez-Lopez.mp3" id="8_5ti5v"]
+[ext_resource type="AudioStream" uid="uid://docxv36flodtr" path="res://Assets/Music/0 - Omar Rodriguez-Lopez.mp3" id="8_5ti5v"]
 [ext_resource type="Script" uid="uid://bbku1dn8s43l5" path="res://Scripts/musica_menu.gd" id="12_g8i7c"]
 
 [sub_resource type="Image" id="Image_wbdvm"]
@@ -208,11 +208,11 @@ layout_mode = 2
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("6_23t3j")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/focus = ExtResource("7_8ph6h")
-theme_override_styles/hover_pressed = ExtResource("7_8ph6h")
-theme_override_styles/hover = ExtResource("7_8ph6h")
-theme_override_styles/pressed = ExtResource("7_8ph6h")
 theme_override_styles/normal = ExtResource("7_8ph6h")
+theme_override_styles/pressed = ExtResource("7_8ph6h")
+theme_override_styles/hover = ExtResource("7_8ph6h")
+theme_override_styles/hover_pressed = ExtResource("7_8ph6h")
+theme_override_styles/focus = ExtResource("7_8ph6h")
 text = "JUGAR"
 
 [node name="Button (Salir)" type="Button" parent="VBoxContainer"]
@@ -220,11 +220,11 @@ layout_mode = 2
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("6_23t3j")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/focus = ExtResource("7_8ph6h")
-theme_override_styles/hover_pressed = ExtResource("7_8ph6h")
-theme_override_styles/hover = ExtResource("7_8ph6h")
-theme_override_styles/pressed = ExtResource("7_8ph6h")
 theme_override_styles/normal = ExtResource("7_8ph6h")
+theme_override_styles/pressed = ExtResource("7_8ph6h")
+theme_override_styles/hover = ExtResource("7_8ph6h")
+theme_override_styles/hover_pressed = ExtResource("7_8ph6h")
+theme_override_styles/focus = ExtResource("7_8ph6h")
 text = "SALIR"
 
 [node name="Node" type="Node" parent="."]
