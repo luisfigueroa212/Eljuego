@@ -1452,7 +1452,7 @@ script = ExtResource("8_v158k")
 shape = SubResource("CapsuleShape2D_1l0tm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CambioEscenario/CollisionShape2D"]
-position = Vector2(-270, -20)
+position = Vector2(-355, 0)
 shape = SubResource("CapsuleShape2D_1l0tm")
 
 [node name="Sprite2D" type="Sprite2D" parent="CambioEscenario"]
@@ -1463,8 +1463,8 @@ texture = ExtResource("13_1phco")
 
 [node name="Sprite2D" type="Sprite2D" parent="CambioEscenario/Sprite2D"]
 z_index = 6
-position = Vector2(-293.4314, -21.34745)
-scale = Vector2(0.920147, 0.93688)
+position = Vector2(-309.30026, -94.53106)
+scale = Vector2(3.568778, 3.844316)
 texture = ExtResource("13_1phco")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
