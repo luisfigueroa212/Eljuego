@@ -1463,7 +1463,7 @@ texture = ExtResource("13_1phco")
 
 [node name="Sprite2D" type="Sprite2D" parent="CambioEscenario/Sprite2D"]
 z_index = 6
-position = Vector2(-309.30026, -94.53106)
+position = Vector2(-549.9122, -90.72667)
 scale = Vector2(3.568778, 3.844316)
 texture = ExtResource("13_1phco")
 
