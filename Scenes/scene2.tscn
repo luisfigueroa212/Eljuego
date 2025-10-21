@@ -991,6 +991,7 @@ height = 42.0
 
 [node name="Game" type="Node2D"]
 modulate = Color(0, 0.909804, 0, 1)
+position = Vector2(24, 30)
 
 [node name="Node2D" type="Node2D" parent="."]
 
