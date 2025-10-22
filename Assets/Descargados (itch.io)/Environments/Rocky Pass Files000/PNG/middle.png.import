@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1vhtrerl703o"
-path="res://.godot/imported/near.png-16ae2d7b380b0dc15c0cae12d0799c96.ctex"
+uid="uid://dpr202cbk0c3"
+path="res://.godot/imported/middle.png-76c6ae1389b2b4635d1fd9f3f65463bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Descargados (itch.io)/Environments/Rocky Pass Files/PNG/near.png"
-dest_files=["res://.godot/imported/near.png-16ae2d7b380b0dc15c0cae12d0799c96.ctex"]
+source_file="res://Assets/Descargados (itch.io)/Environments/Rocky Pass Files000/PNG/middle.png"
+dest_files=["res://.godot/imported/middle.png-76c6ae1389b2b4635d1fd9f3f65463bf.ctex"]
 
 [params]
 
