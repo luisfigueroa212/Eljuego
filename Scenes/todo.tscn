@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://k2lcl4ktin74"]
+[gd_scene load_steps=49 format=4 uid="uid://k2lcl4ktin74"]
 
 [ext_resource type="Script" uid="uid://crltpx3qpqaay" path="res://Scripts/Player.gd" id="1_3dryh"]
 [ext_resource type="Texture2D" uid="uid://b0mue1jnsy7v6" path="res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/clouds.png" id="2_nb51f"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://425licvcfjud" path="res://Assets/Characters/Sprite Sheet/3. Jump 48 x 48.png" id="5_i6g32"]
 [ext_resource type="Texture2D" uid="uid://cqgb34c4s5abx" path="res://Assets/Characters/Sprite Sheet/4. Fall 48 x 48.png" id="6_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://lqh6mou2mvp7" path="res://Assets/Characters/Sprite Sheet/2. Run 48 x 48.png" id="6_i6g32"]
-[ext_resource type="Script" uid="uid://dddxy1vrksn04" path="res://Scripts/area_2d.gd" id="6_v158k"]
 [ext_resource type="Script" uid="uid://4ta7lwjt3phu" path="res://Scripts/cambio_escenario.gd" id="8_v158k"]
 [ext_resource type="Texture2D" uid="uid://c3kkmxbtbeweh" path="res://Assets/Descargados (itch.io)/Environments/night-town-background-files/layers/night-town-background-clouds.png" id="9_nb51f"]
 [ext_resource type="Script" uid="uid://d1i2b10pa0dxo" path="res://Scripts/camera_2d.gd" id="10_ldgsr"]
@@ -1429,7 +1428,6 @@ shape = SubResource("RectangleShape2D_3dryh")
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
 position = Vector2(11, 37)
-script = ExtResource("6_v158k")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 visible = false
