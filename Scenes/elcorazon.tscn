@@ -1296,7 +1296,7 @@ scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_o477a")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(12, -1)
+position = Vector2(34, -3)
 script = ExtResource("4_c3jhy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
