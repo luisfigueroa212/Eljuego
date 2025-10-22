@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnbh5fpth57gr"
-path="res://.godot/imported/rocky-pass-big.png-39d233750d7ada2db68c1af2ae19b386.ctex"
+uid="uid://dfw3jvwdi5k2u"
+path="res://.godot/imported/plant-1.png-1761d33be188dcc5f8952ea08669b9fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Descargados (itch.io)/Environments/Rocky Pass Files/Preview/rocky-pass-big.png"
-dest_files=["res://.godot/imported/rocky-pass-big.png-39d233750d7ada2db68c1af2ae19b386.ctex"]
+source_file="res://Assets/Descargados (itch.io)/Environments/Rocky Pass Files000/PNG/Props/plant-1.png"
+dest_files=["res://.godot/imported/plant-1.png-1761d33be188dcc5f8952ea08669b9fb.ctex"]
 
 [params]
 
