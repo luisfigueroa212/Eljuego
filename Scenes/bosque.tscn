@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://itp11y7hr248"]
+[gd_scene load_steps=74 format=4 uid="uid://itp11y7hr248"]
 
 [ext_resource type="Texture2D" uid="uid://xjdau45vtv8i" path="res://Assets/Descargados (itch.io)/Packs/Gothicvania Cemetery/Environment/graveyard.png" id="1_7flax"]
 [ext_resource type="Script" uid="uid://crltpx3qpqaay" path="res://Scripts/Player.gd" id="1_ggp0n"]
@@ -33521,6 +33521,9 @@ animations = [{
 radius = 6.0
 height = 38.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7flax"]
+size = Vector2(2373, 41.5)
+
 [node name="Game" type="Node2D"]
 
 [node name="Escenario" type="Node2D" parent="."]
@@ -33591,3 +33594,10 @@ color = Color(0.748935, 0.175799, 0.751701, 1)
 zoom = Vector2(3, 3)
 script = ExtResource("6_a7jcy")
 target = NodePath("../CharacterBody2D")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(9, 115)
+
+[node name="1" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-57.5, 42.25)
+shape = SubResource("RectangleShape2D_7flax")
