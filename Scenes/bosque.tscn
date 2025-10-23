@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c0khmgnnd2ps3" path="res://Assets/blas sprites/Environment_Interactive/MovingGrass_ChurchesField_2.png" id="15_loix4"]
 [ext_resource type="Texture2D" uid="uid://niqgd1kmsigw" path="res://Assets/propios/Screenshot_9.png" id="18_jbrsv"]
 [ext_resource type="Script" uid="uid://ch06dkg8p6ld1" path="res://Scenes/cambio_escenario.gd" id="19_jbrsv"]
-[ext_resource type="AudioStream" uid="uid://docxv36flodtr" path="res://Assets/Music/0 - Omar Rodriguez-Lopez.mp3" id="20_7flax"]
+[ext_resource type="AudioStream" uid="uid://640jott04s4r" path="res://Assets/Music/julie - knob (instrumental).mp3" id="20_7flax"]
 [ext_resource type="Script" uid="uid://bbku1dn8s43l5" path="res://Scripts/Menu de inicio/musica_menu.gd" id="21_s73gh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdi6m"]
@@ -22964,7 +22964,7 @@ scale = Vector2(1.3315655, 1.3315655)
 texture = ExtResource("18_jbrsv")
 
 [node name="CambioEscenario" type="Area2D" parent="."]
-position = Vector2(779, 79)
+position = Vector2(850, 79)
 script = ExtResource("19_jbrsv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CambioEscenario"]
@@ -22987,7 +22987,6 @@ shape = SubResource("WorldBoundaryShape2D_jbrsv")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("20_7flax")
 volume_db = -32.032
-autoplay = true
 script = ExtResource("21_s73gh")
 
 [connection signal="body_entered" from="CambioEscenario" to="CharacterBody2D" method="_on_cambio_escenario_body_entered"]
