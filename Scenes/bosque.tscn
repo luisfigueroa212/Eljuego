@@ -19,10 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://c0khmgnnd2ps3" path="res://Assets/blas sprites/Environment_Interactive/MovingGrass_ChurchesField_2.png" id="15_loix4"]
 [ext_resource type="Texture2D" uid="uid://niqgd1kmsigw" path="res://Assets/propios/Screenshot_9.png" id="18_jbrsv"]
 [ext_resource type="Script" uid="uid://ch06dkg8p6ld1" path="res://Scenes/cambio_escenario.gd" id="19_jbrsv"]
-[ext_resource type="AudioStream" uid="uid://docxv36flodtr" path="res://Assets/Music/0 - Omar Rodriguez-Lopez.mp3" id="20_7flax"]
 [ext_resource type="FontFile" uid="uid://cmhajrems3nan" path="res://Assets/Fonts/CloisterBlack.ttf" id="20_uxdu3"]
 [ext_resource type="Script" uid="uid://bbku1dn8s43l5" path="res://Scripts/Menu de inicio/musica_menu.gd" id="21_s73gh"]
 [ext_resource type="Script" uid="uid://j025j8xawylc" path="res://Scenes/control.gd" id="22_s73gh"]
+[ext_resource type="AudioStream" uid="uid://640jott04s4r" path="res://Assets/Music/julie - knob (instrumental).mp3" id="22_uxdu3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdi6m"]
 texture = ExtResource("1_7flax")
@@ -23023,7 +23023,7 @@ shape = SubResource("WorldBoundaryShape2D_jbrsv")
 [node name="Node" type="Node" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("20_7flax")
+stream = ExtResource("22_uxdu3")
 volume_db = -32.032
 autoplay = true
 script = ExtResource("21_s73gh")
