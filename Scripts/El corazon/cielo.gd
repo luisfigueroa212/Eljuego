@@ -4,7 +4,7 @@ extends ParallaxLayer
 @export var velocidad_movimiento = 50
 
 # Ancho de la textura de esta capa (ajusta este valor)
-@export var ancho_imagen = 40
+@export var ancho_imagen = 642
 
 func _process(delta):
 	# Mueve la capa
