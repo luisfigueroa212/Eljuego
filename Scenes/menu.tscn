@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://mxvlsqsfi5sn"]
+[gd_scene load_steps=14 format=4 uid="uid://mxvlsqsfi5sn"]
 
 [ext_resource type="Theme" uid="uid://dl552q6r8llgl" path="res://Scenes/new_theme.tres" id="1_q3rjx"]
 [ext_resource type="Script" uid="uid://6p2yl4ya1301" path="res://Scripts/Menu de inicio/menu.gd" id="2_6swd7"]
@@ -10,8 +10,7 @@
 [ext_resource type="FontFile" uid="uid://p4u17tq3dm5f" path="res://Assets/Fonts/Seagram tfb.ttf" id="6_23t3j"]
 [ext_resource type="StyleBox" uid="uid://c81atx2n8gewj" path="res://Assets/Fonts/player.tres" id="7_8ph6h"]
 [ext_resource type="Script" uid="uid://bgj150m7spkgi" path="res://Scripts/Menu de inicio/parallax_layer_3.gd" id="7_23t3j"]
-[ext_resource type="AudioStream" uid="uid://docxv36flodtr" path="res://Assets/Music/0 - Omar Rodriguez-Lopez.mp3" id="8_5ti5v"]
-[ext_resource type="Script" uid="uid://bbku1dn8s43l5" path="res://Scripts/Menu de inicio/musica_menu.gd" id="12_g8i7c"]
+[ext_resource type="AudioStream" uid="uid://bhon2naw4jw8q" path="res://Assets/Music/Lily Chou-Chou - アラベスク (Arabesque) instrumental [qUcFZj7AyoI].mp3" id="11_g8i7c"]
 
 [sub_resource type="Image" id="Image_wbdvm"]
 data = {
@@ -230,10 +229,9 @@ text = "SALIR"
 [node name="Node" type="Node" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("8_5ti5v")
+stream = ExtResource("11_g8i7c")
 volume_db = -32.032
 autoplay = true
-script = ExtResource("12_g8i7c")
 
 [connection signal="pressed" from="VBoxContainer/Button (Jugar)" to="." method="_on_button_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button (Salir)" to="." method="_on_button_salir_pressed"]

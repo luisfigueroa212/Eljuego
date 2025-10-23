@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://640jott04s4r"
+path="res://.godot/imported/julie - knob (instrumental).mp3-b28ab851982ada2d3d8ee3e656f887e4.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/julie - knob (instrumental).mp3"
+dest_files=["res://.godot/imported/julie - knob (instrumental).mp3-b28ab851982ada2d3d8ee3e656f887e4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
