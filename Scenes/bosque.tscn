@@ -22936,9 +22936,9 @@ script = ExtResource("1_ggp0n")
 z_index = 1
 position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_wowpa")
-animation = &"Idle"
-frame = 2
-frame_progress = 0.200884
+animation = &"Run"
+frame = 3
+frame_progress = 0.32814953
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1, 3)
@@ -22959,13 +22959,17 @@ color = Color(0.45860013, 0.45860013, 0.33312315, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 zoom = Vector2(3, 3)
+limit_left = -700
+limit_top = -10000002
+limit_right = 772
+limit_bottom = 9999998
 script = ExtResource("6_a7jcy")
 target = NodePath("../CharacterBody2D")
 
 [node name="Degrade" type="Sprite2D" parent="Camera2D"]
 modulate = Color(0, 0, 0, 0.40392157)
-position = Vector2(-5, -62)
-scale = Vector2(1.3315655, 1.3315655)
+position = Vector2(78.499985, -60.795727)
+scale = Vector2(3.1169064, 1.3233169)
 texture = ExtResource("18_jbrsv")
 
 [node name="Control" type="Control" parent="Camera2D"]

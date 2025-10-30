@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 boot_splash/per_pixel_transparency/allowed=false
 boot_splash/main_scene="uid://dphcm575sv7wo"
 
+[autoload]
+
+SceneTransitioner="*res://Scenes/scene_transitioner.tscn"
+
 [display]
 
 window/size/viewport_width=1920

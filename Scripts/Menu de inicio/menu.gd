@@ -1,7 +1,9 @@
 extends Control
 
 func _on_button_jugar_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/bosque.tscn")
+	# Llamamos a nuestro Autoload en lugar de cambiar la escena directamente
+	SceneTransitioner.transition_to_scene("res://Scenes/bosque.tscn")
+	
 	
 func _on_button_salir_pressed() -> void:
-	get_tree().quit()
+	SceneTransitioner.transition_to_quit()
