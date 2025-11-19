@@ -1,9 +1,9 @@
 [gd_scene load_steps=68 format=4 uid="uid://itp11y7hr248"]
 
-[ext_resource type="Texture2D" uid="uid://xjdau45vtv8i" path="res://Assets/Descargados (itch.io)/Packs/Gothicvania Cemetery/Environment/graveyard.png" id="1_7flax"]
+[ext_resource type="Texture2D" uid="uid://cbtjpdwb6crxy" path="res://night-town-background-sky (3).png" id="1_7flax"]
 [ext_resource type="Script" uid="uid://crltpx3qpqaay" path="res://Scripts/Player.gd" id="1_ggp0n"]
 [ext_resource type="Texture2D" uid="uid://cqgb34c4s5abx" path="res://Assets/Characters/Sprite Sheet/4. Fall 48 x 48.png" id="2_lbvx4"]
-[ext_resource type="Texture2D" uid="uid://c2hgsxn0lbc5t" path="res://Assets/Descargados (itch.io)/Packs/Gothicvania Cemetery/Environment/mountains.png" id="2_s73gh"]
+[ext_resource type="Texture2D" uid="uid://befeted0u1wgp" path="res://Assets/Backrounds/MountainsLayers/mountains.png" id="2_s73gh"]
 [ext_resource type="Texture2D" uid="uid://blxdclq5a26ol" path="res://Assets/blas sprites/Scenes/forest-spritesheet.png" id="3_uxdu3"]
 [ext_resource type="Texture2D" uid="uid://beivr0y277cpf" path="res://Assets/Characters/Sprite Sheet/1. Idle 48 x 48.png" id="3_ws5k3"]
 [ext_resource type="Texture2D" uid="uid://425licvcfjud" path="res://Assets/Characters/Sprite Sheet/3. Jump 48 x 48.png" id="4_doh8l"]

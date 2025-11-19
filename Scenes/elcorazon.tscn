@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://drt61wjy8wu6i"]
+[gd_scene load_steps=60 format=4 uid="uid://drt61wjy8wu6i"]
 
 [ext_resource type="Script" uid="uid://cm3gs8mtuie1" path="res://Scenes/cielo.gd" id="1_c3jhy"]
 [ext_resource type="Texture2D" uid="uid://5burvggs31jm" path="res://Assets/Descargados (itch.io)/Environments/night-town-background-files/layers/night-town-background-mountains.png" id="2_ge042"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://425licvcfjud" path="res://Assets/Characters/Sprite Sheet/3. Jump 48 x 48.png" id="7_gwqau"]
 [ext_resource type="Texture2D" uid="uid://lqh6mou2mvp7" path="res://Assets/Characters/Sprite Sheet/2. Run 48 x 48.png" id="8_81hhj"]
 [ext_resource type="Script" uid="uid://d1i2b10pa0dxo" path="res://Scripts/camera_2d.gd" id="9_o477a"]
+[ext_resource type="Texture2D" uid="uid://pdatwr7vlja3" path="res://Assets/Characters/Sprite Sheet/IdleSanguinario.png" id="12_wpj1i"]
 [ext_resource type="Texture2D" uid="uid://niqgd1kmsigw" path="res://Assets/propios/Screenshot_9.png" id="15_gwqau"]
 [ext_resource type="AudioStream" uid="uid://bj7gadepik8pj" path="res://Assets/Music/A Nocturne for All.mp3" id="16_o477a"]
 [ext_resource type="Script" uid="uid://bbku1dn8s43l5" path="res://Scripts/Menu de inicio/musica_menu.gd" id="17_wpj1i"]
@@ -1025,6 +1026,38 @@ region = Rect2(240, 0, 48, 48)
 atlas = ExtResource("6_7ximp")
 region = Rect2(528, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdjnw"]
+atlas = ExtResource("12_wpj1i")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nan3c"]
+atlas = ExtResource("12_wpj1i")
+region = Rect2(250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1wih"]
+atlas = ExtResource("12_wpj1i")
+region = Rect2(500, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chclo"]
+atlas = ExtResource("12_wpj1i")
+region = Rect2(750, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy3mb"]
+atlas = ExtResource("12_wpj1i")
+region = Rect2(1000, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqo0h"]
+atlas = ExtResource("12_wpj1i")
+region = Rect2(1250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqtdo"]
+atlas = ExtResource("12_wpj1i")
+region = Rect2(1500, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ril2n"]
+atlas = ExtResource("12_wpj1i")
+region = Rect2(1750, 0, 250, 250)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4fw4"]
 atlas = ExtResource("7_gwqau")
 region = Rect2(0, 0, 48, 48)
@@ -1108,6 +1141,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cdjnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nan3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1wih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chclo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy3mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqo0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqtdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ril2n")
+}],
+"loop": true,
+"name": &"Idle2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_h4fw4")
 }, {
 "duration": 1.0,
@@ -1156,6 +1218,9 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nqtdo"]
 radius = 6.0
 height = 38.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpj1i"]
+size = Vector2(175, 127)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gwqau"]
 normal = Vector2(1, 0)
@@ -1225,22 +1290,22 @@ position = Vector2(-1279.9968, 248.33273)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("WorldBoundaryShape2D_7ximp")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="PJPrincipal" type="CharacterBody2D" parent="."]
 position = Vector2(0, 86)
 script = ExtResource("4_c3jhy")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PJPrincipal"]
 z_index = 1
 position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_nqo0h")
 animation = &"Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PJPrincipal"]
 position = Vector2(1, 3)
 shape = SubResource("CapsuleShape2D_nqtdo")
 debug_color = Color(0.176035, 0.557128, 0.384802, 0.42)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="CharacterBody2D"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="PJPrincipal"]
 position = Vector2(1, 0)
 amount = 16
 lifetime = 0.1
@@ -1252,11 +1317,27 @@ emission_shape = 1
 emission_sphere_radius = 6.24
 color = Color(0.45860013, 0.45860013, 0.33312315, 1)
 
+[node name="SanguinarioNPC" type="CharacterBody2D" parent="."]
+position = Vector2(527, 86)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SanguinarioNPC"]
+z_index = 1
+position = Vector2(0, -20)
+sprite_frames = SubResource("SpriteFrames_nqo0h")
+animation = &"Idle2"
+frame_progress = 0.022644447
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SanguinarioNPC"]
+position = Vector2(-69.5, -39.5)
+shape = SubResource("RectangleShape2D_wpj1i")
+debug_color = Color(0.176035, 0.557128, 0.384802, 0.42)
+
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(2, -12)
 zoom = Vector2(3, 3)
 script = ExtResource("9_o477a")
-target = NodePath("../CharacterBody2D")
+target = NodePath("../PJPrincipal")
 
 [node name="Degrade" type="Sprite2D" parent="Camera2D"]
 modulate = Color(0, 0, 0, 0.20392157)

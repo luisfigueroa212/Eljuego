@@ -21,6 +21,7 @@ boot_splash/main_scene="uid://dphcm575sv7wo"
 [autoload]
 
 SceneTransitioner="*res://Scenes/scene_transitioner.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -39,6 +40,10 @@ window/stretch/mode="viewport"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [input]
 
