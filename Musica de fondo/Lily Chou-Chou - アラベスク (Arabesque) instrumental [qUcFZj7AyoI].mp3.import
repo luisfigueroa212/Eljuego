@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhon2naw4jw8q"
+path="res://.godot/imported/Lily Chou-Chou - アラベスク (Arabesque) instrumental [qUcFZj7AyoI].mp3-ba8c75d3919e8cca0e343f3a725c569e.mp3str"
+
+[deps]
+
+source_file="res://Musica de fondo/Lily Chou-Chou - アラベスク (Arabesque) instrumental [qUcFZj7AyoI].mp3"
+dest_files=["res://.godot/imported/Lily Chou-Chou - アラベスク (Arabesque) instrumental [qUcFZj7AyoI].mp3-ba8c75d3919e8cca0e343f3a725c569e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

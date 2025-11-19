@@ -1,16 +1,18 @@
 [gd_scene load_steps=14 format=4 uid="uid://mxvlsqsfi5sn"]
 
-[ext_resource type="Theme" uid="uid://dl552q6r8llgl" path="res://Scenes/new_theme.tres" id="1_q3rjx"]
-[ext_resource type="Script" uid="uid://6p2yl4ya1301" path="res://Scripts/Menu de inicio/menu.gd" id="2_6swd7"]
-[ext_resource type="Texture2D" uid="uid://d3alqt1imds1v" path="res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/town.png" id="3_7qvly"]
+[ext_resource type="Script" uid="uid://6p2yl4ya1301" path="res://Scripts/Menu de inicio/Menu.gd" id="2_6swd7"]
+[ext_resource type="Texture2D" uid="uid://d3alqt1imds1v" path="res://Assets/Principales ASSETS/Gothic-Horror-Files(NO ELIMINAR)/PNG/layers/town.png" id="3_7qvly"]
 [ext_resource type="Script" uid="uid://blg4x3fx7uyec" path="res://Scripts/Menu de inicio/parallax_layer1.gd" id="3_rfqti"]
-[ext_resource type="Texture2D" uid="uid://b0mue1jnsy7v6" path="res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/clouds.png" id="4_rfqti"]
+[ext_resource type="Texture2D" uid="uid://b0mue1jnsy7v6" path="res://Assets/Principales ASSETS/Gothic-Horror-Files(NO ELIMINAR)/PNG/layers/clouds.png" id="4_rfqti"]
 [ext_resource type="Script" uid="uid://bfddmd7t7ak71" path="res://Scripts/Menu de inicio/parallax_layer_2.gd" id="5_g8i7c"]
-[ext_resource type="Texture2D" uid="uid://cppbm2dflr8ak" path="res://Assets/Backrounds/MountainsLayers/trees.png" id="5_q3rjx"]
-[ext_resource type="FontFile" uid="uid://p4u17tq3dm5f" path="res://Assets/Fonts/Seagram tfb.ttf" id="6_23t3j"]
-[ext_resource type="StyleBox" uid="uid://c81atx2n8gewj" path="res://Assets/Fonts/player.tres" id="7_8ph6h"]
+[ext_resource type="Texture2D" uid="uid://cppbm2dflr8ak" path="res://Assets/Principales ASSETS/trees.png" id="5_q3rjx"]
+[ext_resource type="FontFile" uid="uid://p4u17tq3dm5f" path="res://Texto fuentes/Seagram tfb.ttf" id="6_23t3j"]
+[ext_resource type="StyleBox" uid="uid://c81atx2n8gewj" path="res://Texto fuentes/player.tres" id="7_8ph6h"]
 [ext_resource type="Script" uid="uid://bgj150m7spkgi" path="res://Scripts/Menu de inicio/parallax_layer_3.gd" id="7_23t3j"]
-[ext_resource type="AudioStream" uid="uid://bhon2naw4jw8q" path="res://Assets/Music/Lily Chou-Chou - アラベスク (Arabesque) instrumental [qUcFZj7AyoI].mp3" id="11_g8i7c"]
+[ext_resource type="AudioStream" uid="uid://bhon2naw4jw8q" path="res://Musica de fondo/Lily Chou-Chou - アラベスク (Arabesque) instrumental [qUcFZj7AyoI].mp3" id="11_g8i7c"]
+
+[sub_resource type="Theme" id="Theme_7qvly"]
+default_font_size = 26
 
 [sub_resource type="Image" id="Image_wbdvm"]
 data = {
@@ -102,7 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_q3rjx")
+theme = SubResource("Theme_7qvly")
 script = ExtResource("2_6swd7")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

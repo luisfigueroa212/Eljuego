@@ -1,26 +1,26 @@
 [gd_scene load_steps=74 format=4 uid="uid://drt61wjy8wu6i"]
 
-[ext_resource type="Script" uid="uid://cm3gs8mtuie1" path="res://Scenes/cielo.gd" id="1_c3jhy"]
-[ext_resource type="Texture2D" uid="uid://5burvggs31jm" path="res://Assets/Descargados (itch.io)/Environments/night-town-background-files/layers/night-town-background-mountains.png" id="2_ge042"]
-[ext_resource type="Texture2D" uid="uid://dm05vhrlwiapj" path="res://Assets/Descargados (itch.io)/Environments/night-town-background-files/layers/night-town-background-sky (1).png" id="3_6h6is"]
-[ext_resource type="Script" uid="uid://0k75gixwr2j6" path="res://Scenes/nubes.gd" id="3_gwqau"]
-[ext_resource type="Texture2D" uid="uid://cnei8wnf4q3lh" path="res://Assets/Descargados (itch.io)/Environments/night-town-background-files/layers/night-town-background-forest.png" id="3_syn20"]
-[ext_resource type="Texture2D" uid="uid://cx60v4o2vfjwv" path="res://Assets/Descargados (itch.io)/Environments/night-town-background-files/layers/night-town-background-sky (4).png" id="4_7ximp"]
-[ext_resource type="Script" uid="uid://crltpx3qpqaay" path="res://Scripts/Player.gd" id="4_c3jhy"]
-[ext_resource type="Texture2D" uid="uid://lb17radl53in" path="res://Assets/Descargados (itch.io)/Environments/night-town-background-files/layers/night-town-background-town.png" id="4_syn20"]
-[ext_resource type="Texture2D" uid="uid://cqgb34c4s5abx" path="res://Assets/Characters/Sprite Sheet/4. Fall 48 x 48.png" id="5_6h6is"]
-[ext_resource type="Texture2D" uid="uid://cwkgbpkwvdevs" path="res://Assets/Descargados (itch.io)/Environments/Gothic-Horror-Files/PNG/layers/tiles.png" id="5_c3jhy"]
-[ext_resource type="Texture2D" uid="uid://beivr0y277cpf" path="res://Assets/Characters/Sprite Sheet/1. Idle 48 x 48.png" id="6_7ximp"]
-[ext_resource type="Texture2D" uid="uid://425licvcfjud" path="res://Assets/Characters/Sprite Sheet/3. Jump 48 x 48.png" id="7_gwqau"]
-[ext_resource type="Texture2D" uid="uid://lqh6mou2mvp7" path="res://Assets/Characters/Sprite Sheet/2. Run 48 x 48.png" id="8_81hhj"]
-[ext_resource type="Script" uid="uid://d1i2b10pa0dxo" path="res://Scripts/camera_2d.gd" id="9_o477a"]
-[ext_resource type="Texture2D" uid="uid://q5q87dpt30k" path="res://Assets/Characters/Sprite Sheet/6. Dash 112 x 56.png" id="10_q1wih"]
-[ext_resource type="Texture2D" uid="uid://pdatwr7vlja3" path="res://Assets/Characters/Sprite Sheet/IdleSanguinario.png" id="12_wpj1i"]
-[ext_resource type="Script" uid="uid://b83nd7s58e86g" path="res://Scenes/sanguinario_npc.gd" id="15_cdjnw"]
-[ext_resource type="Texture2D" uid="uid://niqgd1kmsigw" path="res://Assets/propios/Screenshot_9.png" id="15_gwqau"]
+[ext_resource type="Script" uid="uid://cm3gs8mtuie1" path="res://Scripts/El corazon/El corazon cielo.gd" id="1_c3jhy"]
+[ext_resource type="Texture2D" uid="uid://5burvggs31jm" path="res://Assets/Principales ASSETS/night-town-background-files (NO ELIMINAR)/layers/night-town-background-mountains.png" id="2_ge042"]
+[ext_resource type="Texture2D" uid="uid://dm05vhrlwiapj" path="res://Assets/Principales ASSETS/night-town-background-files (NO ELIMINAR)/layers/night-town-background-sky (1).png" id="3_6h6is"]
+[ext_resource type="Script" uid="uid://0k75gixwr2j6" path="res://Scripts/El corazon/El corazon nubes.gd" id="3_gwqau"]
+[ext_resource type="Texture2D" uid="uid://cnei8wnf4q3lh" path="res://Assets/Principales ASSETS/night-town-background-files (NO ELIMINAR)/layers/night-town-background-forest.png" id="3_syn20"]
+[ext_resource type="Texture2D" uid="uid://cx60v4o2vfjwv" path="res://Assets/Principales ASSETS/night-town-background-files (NO ELIMINAR)/layers/night-town-background-sky (4).png" id="4_7ximp"]
+[ext_resource type="Script" uid="uid://crltpx3qpqaay" path="res://Scripts/Scripts GENERALES/Player.gd" id="4_c3jhy"]
+[ext_resource type="Texture2D" uid="uid://lb17radl53in" path="res://Assets/Principales ASSETS/night-town-background-files (NO ELIMINAR)/layers/night-town-background-town.png" id="4_syn20"]
+[ext_resource type="Texture2D" uid="uid://cqgb34c4s5abx" path="res://Assets/Personajes sprites/4. Fall 48 x 48.png" id="5_6h6is"]
+[ext_resource type="Texture2D" uid="uid://cwkgbpkwvdevs" path="res://Assets/Principales ASSETS/Gothic-Horror-Files(NO ELIMINAR)/PNG/layers/tiles.png" id="5_c3jhy"]
+[ext_resource type="Texture2D" uid="uid://beivr0y277cpf" path="res://Assets/Personajes sprites/1. Idle 48 x 48.png" id="6_7ximp"]
+[ext_resource type="Texture2D" uid="uid://425licvcfjud" path="res://Assets/Personajes sprites/3. Jump 48 x 48.png" id="7_gwqau"]
+[ext_resource type="Texture2D" uid="uid://lqh6mou2mvp7" path="res://Assets/Personajes sprites/2. Run 48 x 48.png" id="8_81hhj"]
+[ext_resource type="Script" uid="uid://d1i2b10pa0dxo" path="res://Scripts/Scripts GENERALES/camera_2d.gd" id="9_o477a"]
+[ext_resource type="Texture2D" uid="uid://q5q87dpt30k" path="res://Assets/Personajes sprites/6. Dash 112 x 56.png" id="10_q1wih"]
+[ext_resource type="Texture2D" uid="uid://pdatwr7vlja3" path="res://Assets/Personajes sprites/IdleSanguinario.png" id="12_wpj1i"]
+[ext_resource type="Script" uid="uid://b83nd7s58e86g" path="res://Scripts/El corazon/El corazon sanguinario_npc.gd" id="15_cdjnw"]
+[ext_resource type="Texture2D" uid="uid://niqgd1kmsigw" path="res://Assets/Principales ASSETS/Capa de opacidad (NO ELIMINAR).png" id="15_gwqau"]
 [ext_resource type="Resource" uid="uid://1uddqc23xq0m" path="res://TimelinesDialogic/El_Sanguinario.dch" id="16_nan3c"]
-[ext_resource type="AudioStream" uid="uid://bj7gadepik8pj" path="res://Assets/Music/A Nocturne for All.mp3" id="16_o477a"]
-[ext_resource type="Script" uid="uid://bbku1dn8s43l5" path="res://Scripts/Menu de inicio/musica_menu.gd" id="17_wpj1i"]
+[ext_resource type="AudioStream" uid="uid://bj7gadepik8pj" path="res://Musica de fondo/A Nocturne for All.mp3" id="16_o477a"]
+[ext_resource type="Script" uid="uid://bbku1dn8s43l5" path="res://Scripts/Menu de inicio/Menu musica.gd" id="17_wpj1i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nan3c"]
 texture = ExtResource("2_ge042")
@@ -1380,8 +1380,6 @@ z_index = 1
 position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_nqo0h")
 animation = &"Dash"
-frame = 9
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PJPrincipal"]
 position = Vector2(1, 3)

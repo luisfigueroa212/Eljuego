@@ -14,7 +14,6 @@ config/name="Juego"
 run/main_scene="uid://mxvlsqsfi5sn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=60
-config/icon="res://icon.svg"
 boot_splash/per_pixel_transparency/allowed=false
 boot_splash/main_scene="uid://dphcm575sv7wo"
 
