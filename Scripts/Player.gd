@@ -9,29 +9,45 @@ const MAX_JUMPS = 2
 @onready var animationPlayer = $AnimatedSprite2D
 @export var atacar: bool = false
 
-# --- VARIABLES AÑADIDAS ---
+# --- VARIABLES DE MOVIMIENTO ---
 var normal_speed = SPEED
 var current_speed = SPEED
-
-# Variable externa contador de saltos
 var jump_count = 0
 
-# Función de gravedad
+# --- NUEVO DASH: Variables de Configuración ---
+@export var dash_speed: float = 400.0   # Velocidad del impulso
+@export var dash_duration: float = 0.3  # Cuánto dura el impulso (segundos)
+@export var dash_cooldown: float = 0.5  # Tiempo de espera para volver a usarlo
+var is_dashing: bool = false            # ¿Estamos dashando ahora?
+var can_dash: bool = true               # ¿Podemos usar el dash?
+
+
 func _physics_process(delta: float) -> void:
+	
+	if is_dashing:
+		move_and_slide()
+		return # Salimos de la función aquí para no procesar gravedad ni teclas
+	# --------------------------------------
+
+	# Gravedad normal
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	# Variables
-	# Entrada de movimiento Izquierda y Derecha
 	var direction := Input.get_axis("Izquierda", "Derecha")
+	
 	if !atacar:
+	
+		if Input.is_action_just_pressed("Dash") and can_dash:
+			start_dash(direction)
+			return
+		# ------------------------------
 		if direction:
-			# --- CAMBIO AQUÍ ---
 			velocity.x = direction * current_speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, current_speed)
 		
-		# Entrada de movimientos Salto doble
+		# Salto doble
 		if is_on_floor():
 			jump_count = 0
 		if Input.is_action_just_pressed("ui_accept") and jump_count < MAX_JUMPS:
@@ -46,49 +62,78 @@ func _physics_process(delta: float) -> void:
 		await (animationPlayer.animation_finished)
 		atacar = false
 
-	# Llamar la función animaciones (No Tocar)
+	# Llamar la función animaciones
 	animations(direction)
 		
-	# Dirección del sprite (No Tocar)
-	if direction == 1:
-		animationPlayer.flip_h = false
+	# Dirección del sprite
+	if not is_dashing: 
+		if direction == 1:
+			animationPlayer.flip_h = false
+		elif direction == -1:
+			animationPlayer.flip_h = true
 
-	elif direction == -1:
-		animationPlayer.flip_h = true
+# --- NUEVO DASH: Función de Control ---
+func start_dash(input_direction: float):
+	is_dashing = true
+	can_dash = false
+	
+	# Determinar la dirección del dash
+	var dash_dir = input_direction
+	
+	# Si el jugador no está presionando nada, usar hacia donde mira el sprite
+	if dash_dir == 0:
+		if animationPlayer.flip_h: # Si mira a la izquierda
+			dash_dir = -1
+		else: # Si mira a la derecha
+			dash_dir = 1
+			
+	# Aplicar la velocidad de Dash (solo en horizontal, y quitamos vertical)
+	velocity.x = dash_dir * dash_speed
+	velocity.y = 0 # Opcional: Para que no caiga mientras dasha
+	
+	# Reproducir animación de Dash (si la tienes, si no, usa Run o Jump)
+	animationPlayer.play("Dash") 
+	
+	# Esperar la duración del dash
+	await get_tree().create_timer(dash_duration).timeout
+	
+	# Termina el dash
+	is_dashing = false
+	velocity.x = 0 # Frenar un poco al terminar (opcional)
+	
+	# Esperar el enfriamiento (Cooldown)
+	await get_tree().create_timer(dash_cooldown).timeout
+	can_dash = true
+	print("Dash listo de nuevo")
+
+# --------------------------------------
 
 func animations(direction):
+	if is_dashing: return # No cambiar animaciones si estamos dashando
+	
 	# En suelo
 	if is_on_floor():
 		if direction == 0:
 			animationPlayer.play("Idle")
-			
 		else:
 			animationPlayer.play("Run")
 	# En aire
 	else:
 		if velocity.y < 0:
 			animationPlayer.play("Jump")
-			# Animación de caída luego del doble salto
 			if jump_count == 2 and velocity.y > -30:
 				animationPlayer.play("Fall")
-
-
-
-
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == self:
 		print("Entró en zona lenta")
-		# Reduce la velocidad
 		current_speed = 100.0
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == self:
 		print("Salió de zona lenta")
-		# Restaura la velocidad normal
 		current_speed = normal_speed
-		
-
 
 func _on_cambio_escenario_body_entered(body: Node2D) -> void:
-	SceneTransitioner.transition_to_scene("res://Scenes/elcorazon.tscn")
+	if body.is_in_group("player"): # Agregué la seguridad del grupo player aquí también
+		SceneTransitioner.transition_to_scene("res://Scenes/elcorazon.tscn")
