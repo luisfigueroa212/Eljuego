@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://drt61wjy8wu6i"]
+[gd_scene load_steps=84 format=4 uid="uid://drt61wjy8wu6i"]
 
 [ext_resource type="Script" uid="uid://cm3gs8mtuie1" path="res://Scripts/El corazon/El corazon cielo.gd" id="1_c3jhy"]
 [ext_resource type="Texture2D" uid="uid://5burvggs31jm" path="res://Assets/Principales ASSETS/night-town-background-files (NO ELIMINAR)/layers/night-town-background-mountains.png" id="2_ge042"]
@@ -1303,6 +1303,52 @@ size = Vector2(34.722214, 41)
 [sub_resource type="CircleShape2D" id="CircleShape2D_q1wih"]
 radius = 13.200089
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q1wih"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_chclo"]
+_limits = [0.0, 0.3, 0.0, 1.0]
+_data = [Vector2(0, 0.0028301775), 0.0, 1.5426292, 0, 0, Vector2(0.49512672, 0.3), 0.0, 0.0, 0, 0, Vector2(0.49513674, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 0.004245281), -1.5372944, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_gy3mb"]
+curve = SubResource("Curve_chclo")
+
+[sub_resource type="Gradient" id="Gradient_nqo0h"]
+colors = PackedColorArray(1, 1, 1, 0.078431375, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nqtdo"]
+gradient = SubResource("Gradient_nqo0h")
+
+[sub_resource type="Curve" id="Curve_ril2n"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_erpdi"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 15), 0.0, 179.57547, 0, 0, Vector2(0.25730994, 30), 0.0, 0.0, 0, 0, Vector2(1, 29.716982), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_2b3ge"]
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_beo0x"]
+curve_x = SubResource("Curve_ril2n")
+curve_y = SubResource("Curve_erpdi")
+curve_z = SubResource("Curve_2b3ge")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oboey"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -200, 0)
+emission_shape_scale = Vector3(350, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 3000, 0)
+scale_min = 0.19999999
+scale_over_velocity_curve = SubResource("CurveXYZTexture_beo0x")
+color_initial_ramp = SubResource("GradientTexture1D_nqtdo")
+alpha_curve = SubResource("CurveTexture_gy3mb")
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gwqau"]
 normal = Vector2(1, 0)
 
@@ -1460,6 +1506,15 @@ modulate = Color(0, 0, 0, 0.20392157)
 position = Vector2(-4, -6.0000076)
 scale = Vector2(1.3315655, 1.6115655)
 texture = ExtResource("15_gwqau")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Camera2D"]
+material = SubResource("CanvasItemMaterial_q1wih")
+position = Vector2(-2, 12)
+amount = 100
+lifetime = 0.5
+preprocess = 0.5
+visibility_rect = Rect2(-350, -200, 700, 400)
+process_material = SubResource("ParticleProcessMaterial_oboey")
 
 [node name="Fronteras" type="StaticBody2D" parent="."]
 position = Vector2(9, 98)
