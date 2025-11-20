@@ -7,13 +7,11 @@ extends Control
 
 # El monólogo de tu juego
 var monologue_lines = [
-	"El Mercenario, sin nombre ni rostro ya, yacía vencido por la Peste, con el último aliento escapándose.",
-	"Fue en esa negrura, en el umbral, que una voz tranquila se le acercó. 'El Sanguinario'.",
-	"No ofreció sanación. Ofreció algo más cruel: supervivencia. Un pacto que la desesperación obligó a aceptar.",
-	"El despertar fue en El Corazón, el último muro del mundo. Pero el Mercenario descubrió que la 'supervivencia' era la estafa más ruin. Era una maldición: un deterioro perpetuo que desgarraba su carne y alma.",
-	"El cuerpo, en constante desmoronamiento, le gritaba un hambre insoportable. Un vacío que solo podía llenarse con una cosa: la Humanidad de otros.",
-	"Con horror, el Mercenario comprendió su nuevo destino. Para mitigar su propia ruina, debía cazar a los últimos inocentes de El Corazón. Se había convertido en el depredador que El Sanguinario había planeado.",
-	"Ahora, solo queda el camino de vuelta. No en busca de cura, sino en busca de venganza. El Corazón aguarda, y El Sanguinario será juzgado."
+	"Cada paso es una tortura. La infección avanza más rápido de lo que puedo caminar.",
+	"He visto a hombres más fuertes que yo convertirse en polvo y locura.",
+	"Pero me niego a morir aquí, tirado en el barro como una bestia.",
+	"Dicen que en la ciudadela hay alguien capaz de otorgar la inmunidad. Le llaman 'El Sanguinario'.",
+    "Si puede salvarme... le daré lo que pida. Solo quiero vivir un día más."
 ]
 
 # Palabras clave que se escribirán más lento para énfasis

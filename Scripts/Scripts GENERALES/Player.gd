@@ -7,6 +7,7 @@ const MAX_JUMPS = 2
 
 # Variables externas
 @onready var animationPlayer = $AnimatedSprite2D
+@onready var dash_particles = $Dash #PARTICULAS DASH
 @export var atacar: bool = false
 
 # --- VARIABLES DE MOVIMIENTO ---
@@ -77,6 +78,7 @@ func start_dash(input_direction: float):
 	is_dashing = true
 	can_dash = false
 	
+	dash_particles.emitting = true #PARTICULAS DASH
 	# Determinar la dirección del dash
 	var dash_dir = input_direction
 	
@@ -97,6 +99,7 @@ func start_dash(input_direction: float):
 	# Esperar la duración del dash
 	await get_tree().create_timer(dash_duration).timeout
 	
+	dash_particles.emitting = false #PARTICULAS DASH
 	# Termina el dash
 	is_dashing = false
 	velocity.x = 0 # Frenar un poco al terminar (opcional)
