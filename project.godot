@@ -25,9 +25,11 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"El_Sanguinario": "res://TimelinesDialogic/El_Sanguinario.dch"
+"El_Sanguinario": "res://TimelinesDialogic/El_Sanguinario.dch",
+"Mercenario": "res://TimelinesDialogic/Mercenario.dch"
 }
 directories/dtl_directory={
+"Intro del mercenario": "res://TimelinesDialogic/Intro del mercenario.dtl",
 "charla_npc_sanguinario": "res://TimelinesDialogic/charla_npc_sanguinario.dtl"
 }
 layout/style_directory={

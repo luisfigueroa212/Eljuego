@@ -124,16 +124,7 @@ func animations(direction):
 			if jump_count == 2 and velocity.y > -30:
 				animationPlayer.play("Fall")
 
+
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == self:
-		print("Entró en zona lenta")
-		current_speed = 100.0
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body == self:
-		print("Salió de zona lenta")
-		current_speed = normal_speed
-
-func _on_cambio_escenario_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"): # Agregué la seguridad del grupo player aquí también
 		SceneTransitioner.transition_to_scene("res://Scenes/elcorazon.tscn")
