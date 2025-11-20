@@ -2,20 +2,20 @@
 
 [ext_resource type="Script" uid="uid://crltpx3qpqaay" path="res://Scripts/Scripts GENERALES/Player.gd" id="1_ggp0n"]
 [ext_resource type="Texture2D" uid="uid://cqgb34c4s5abx" path="res://Assets/Personajes sprites/4. Fall 48 x 48.png" id="2_lbvx4"]
-[ext_resource type="Texture2D" uid="uid://blxdclq5a26ol" path="res://Assets/blas sprites/Scenes/forest-spritesheet.png" id="3_uxdu3"]
+[ext_resource type="Texture2D" uid="uid://blxdclq5a26ol" path="res://Assets/Principales ASSETS/Blasphemous/forest-spritesheet.png" id="3_uxdu3"]
 [ext_resource type="Texture2D" uid="uid://beivr0y277cpf" path="res://Assets/Personajes sprites/1. Idle 48 x 48.png" id="3_ws5k3"]
 [ext_resource type="Texture2D" uid="uid://425licvcfjud" path="res://Assets/Personajes sprites/3. Jump 48 x 48.png" id="4_doh8l"]
-[ext_resource type="Texture2D" uid="uid://ghix73ls7c3w" path="res://Assets/blas sprites/Scenes/garden-spritesheet.png" id="4_yqma4"]
+[ext_resource type="Texture2D" uid="uid://ghix73ls7c3w" path="res://Assets/Principales ASSETS/Blasphemous/garden-spritesheet.png" id="4_yqma4"]
 [ext_resource type="Texture2D" uid="uid://lqh6mou2mvp7" path="res://Assets/Personajes sprites/2. Run 48 x 48.png" id="5_nl23f"]
 [ext_resource type="Script" uid="uid://d1i2b10pa0dxo" path="res://Scripts/Scripts GENERALES/camera_2d.gd" id="6_a7jcy"]
-[ext_resource type="Texture2D" uid="uid://bwb1fdtyboyxd" path="res://Assets/blas sprites/Environment_Interactive/MovingGrass_Gardens_3.png" id="8_kj5d4"]
-[ext_resource type="Texture2D" uid="uid://cyb73xfgwlr1q" path="res://Assets/blas sprites/Scenes/ice-cave-room-spritesheet.png" id="9_og7sj"]
-[ext_resource type="Texture2D" uid="uid://k48q4vrqkt25" path="res://Assets/blas sprites/Environment_Interactive/MovingGrass_Mountains_1.png" id="11_6wi4i"]
-[ext_resource type="Texture2D" uid="uid://tewo85m73xnh" path="res://Assets/blas sprites/Environment_Interactive/MovingGrass_ChurchesField_1.png" id="12_1p4fh"]
-[ext_resource type="Texture2D" uid="uid://ttfmw6djt1dc" path="res://Assets/blas sprites/Environment_Interactive/MovingGrass_Gardens_1.png" id="13_kqw10"]
+[ext_resource type="Texture2D" uid="uid://bwb1fdtyboyxd" path="res://Assets/Principales ASSETS/Blasphemous/MovingGrass_Gardens_3.png" id="8_kj5d4"]
+[ext_resource type="Texture2D" uid="uid://cyb73xfgwlr1q" path="res://Assets/Principales ASSETS/Blasphemous/ice-cave-room-spritesheet.png" id="9_og7sj"]
+[ext_resource type="Texture2D" uid="uid://k48q4vrqkt25" path="res://Assets/Principales ASSETS/Blasphemous/MovingGrass_Mountains_1.png" id="11_6wi4i"]
+[ext_resource type="Texture2D" uid="uid://tewo85m73xnh" path="res://Assets/Principales ASSETS/Blasphemous/MovingGrass_ChurchesField_1.png" id="12_1p4fh"]
+[ext_resource type="Texture2D" uid="uid://ttfmw6djt1dc" path="res://Assets/Principales ASSETS/Blasphemous/MovingGrass_Gardens_1.png" id="13_kqw10"]
 [ext_resource type="Texture2D" uid="uid://q5q87dpt30k" path="res://Assets/Personajes sprites/6. Dash 112 x 56.png" id="13_yqma4"]
-[ext_resource type="Texture2D" uid="uid://bmcy5cdyknfuh" path="res://Assets/blas sprites/Environment_Interactive/MovingGrass_Gardens_2.png" id="14_by6y2"]
-[ext_resource type="Texture2D" uid="uid://c0khmgnnd2ps3" path="res://Assets/blas sprites/Environment_Interactive/MovingGrass_ChurchesField_2.png" id="15_loix4"]
+[ext_resource type="Texture2D" uid="uid://bmcy5cdyknfuh" path="res://Assets/Principales ASSETS/Blasphemous/MovingGrass_Gardens_2.png" id="14_by6y2"]
+[ext_resource type="Texture2D" uid="uid://c0khmgnnd2ps3" path="res://Assets/Principales ASSETS/Blasphemous/MovingGrass_ChurchesField_2.png" id="15_loix4"]
 [ext_resource type="Texture2D" uid="uid://niqgd1kmsigw" path="res://Assets/Principales ASSETS/Capa de opacidad (NO ELIMINAR).png" id="18_jbrsv"]
 [ext_resource type="FontFile" uid="uid://b5dp0spri5u83" path="res://Texto fuentes/Minecraft.ttf" id="20_uxdu3"]
 [ext_resource type="Script" uid="uid://bbku1dn8s43l5" path="res://Scripts/Menu de inicio/Menu musica.gd" id="21_s73gh"]
@@ -23046,14 +23046,14 @@ position = Vector2(78.499985, -60.795727)
 scale = Vector2(3.1169064, 1.3233169)
 texture = ExtResource("18_jbrsv")
 
-[node name="Control" type="Control" parent="Camera2D"]
+[node name="Texto" type="Control" parent="Camera2D"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("22_s73gh")
 
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/Texto"]
 layout_mode = 0
 offset_left = -296.0
 offset_top = -222.0
@@ -23065,10 +23065,10 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Texto/MarginContainer"]
 layout_mode = 2
 
-[node name="TextLabel" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer"]
+[node name="TextLabel" type="Label" parent="Camera2D/Texto/MarginContainer/VBoxContainer"]
 modulate = Color(0.58103293, 0.581033, 0.58103275, 1)
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
