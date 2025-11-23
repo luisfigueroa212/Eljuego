@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=4 uid="uid://drt61wjy8wu6i"]
+[gd_scene load_steps=83 format=4 uid="uid://drt61wjy8wu6i"]
 
 [ext_resource type="Script" uid="uid://cm3gs8mtuie1" path="res://Scripts/El corazon/El corazon cielo.gd" id="1_c3jhy"]
 [ext_resource type="Texture2D" uid="uid://5burvggs31jm" path="res://Assets/Principales ASSETS/night-town-background-files (NO ELIMINAR)/layers/night-town-background-mountains.png" id="2_ge042"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://pdatwr7vlja3" path="res://Assets/Personajes sprites/IdleSanguinario.png" id="12_wpj1i"]
 [ext_resource type="Script" uid="uid://b83nd7s58e86g" path="res://Scripts/El corazon/El corazon sanguinario_npc.gd" id="15_cdjnw"]
 [ext_resource type="Texture2D" uid="uid://niqgd1kmsigw" path="res://Assets/Principales ASSETS/Capa de opacidad (NO ELIMINAR).png" id="15_gwqau"]
-[ext_resource type="Resource" uid="uid://1uddqc23xq0m" path="res://TimelinesDialogic/El_Sanguinario.dch" id="16_nan3c"]
+[ext_resource type="Resource" path="res://TimelinesDialogic/El_Sanguinario.dch" id="16_nan3c"]
 [ext_resource type="AudioStream" uid="uid://bj7gadepik8pj" path="res://Musica de fondo/A Nocturne for All.mp3" id="16_o477a"]
 [ext_resource type="Texture2D" uid="uid://bsr4x02dqc8o7" path="res://Assets/Principales ASSETS/32x32_Arcane_8.png" id="16_q1wih"]
 
@@ -1297,9 +1297,6 @@ animations = [{
 radius = 6.0
 height = 38.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nan3c"]
-size = Vector2(34.722214, 41)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_q1wih"]
 radius = 13.200089
 
@@ -1480,12 +1477,6 @@ flip_h = true
 
 [node name="BubbleMarker" type="Marker2D" parent="SanguinarioNPC/AnimatedSprite2D"]
 position = Vector2(5, -10)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SanguinarioNPC"]
-visible = false
-position = Vector2(1.5, -5.5)
-scale = Vector2(0.72, 1)
-shape = SubResource("RectangleShape2D_nan3c")
 
 [node name="AreaInteraccion" type="Area2D" parent="SanguinarioNPC"]
 scale = Vector2(2.3314285, 1.0799999)

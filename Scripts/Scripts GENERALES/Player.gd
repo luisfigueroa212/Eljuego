@@ -21,18 +21,28 @@ var jump_count = 0
 @export var dash_cooldown: float = 0.5  # Tiempo de espera para volver a usarlo
 var is_dashing: bool = false            # ¿Estamos dashando ahora?
 var can_dash: bool = true               # ¿Podemos usar el dash?
+var is_in_dialogue: bool = false
 
+func _ready():
+	print("Player listo")
+	Dialogic.timeline_ended.connect(func():
+		print("✅ FIN DE DIÁLOGO DETECTADO - Desbloqueando controles")
+		is_in_dialogue = false
+	)
 
 func _physics_process(delta: float) -> void:
-	
 	if is_dashing:
 		move_and_slide()
 		return # Salimos de la función aquí para no procesar gravedad ni teclas
 	# --------------------------------------
-
 	# Gravedad normal
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	if is_in_dialogue:
+			velocity.x = 0         # Aseguramos que no se deslice
+			move_and_slide()       # Aplicamos gravedad
+			return                 # ¡STOP! No leemos teclas
 
 	# Variables
 	var direction := Input.get_axis("Izquierda", "Derecha")
@@ -126,7 +136,6 @@ func animations(direction):
 			animationPlayer.play("Jump")
 			if jump_count == 2 and velocity.y > -30:
 				animationPlayer.play("Fall")
-
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

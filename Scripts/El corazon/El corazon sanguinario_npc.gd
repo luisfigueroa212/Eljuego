@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 # Variable para saber si el jugador está cerca
 var player_in_area = false
+var player_ref = null
 
 @export var sanguinario_dialogic_char: DialogicCharacter
 
@@ -24,6 +25,13 @@ func _process(delta):
 
 func run_dialogue():
 	# 1. Iniciamos el diálogo
+	if player_ref:
+		print("Ordenando al jugador que se congele...")
+		player_ref.is_in_dialogue = true  # <--- Accedemos directo a su variable
+		player_ref.velocity = Vector2.ZERO # <--- Lo frenamos
+		# Opcional: ponerlo en idle
+		if player_ref.animationPlayer:
+			player_ref.animationPlayer.play("Idle")
 	var layout = Dialogic.start("charla_npc_sanguinario")
 	
 	# 2. Cargamos el personaje MANUALMENTE (Pega tu ruta aquí abajo entre comillas)
@@ -41,8 +49,10 @@ func run_dialogue():
 func _on_area_entered(body):
 	if body.is_in_group("player"):
 		player_in_area = true
+		player_ref = body
 		print("Jugador cerca. Presiona Enter para hablar.")
 
 func _on_area_exited(body):
 	if body.is_in_group("player"):
+		player_ref = null
 		player_in_area = false
