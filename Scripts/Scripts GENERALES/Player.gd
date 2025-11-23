@@ -5,6 +5,13 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 const MAX_JUMPS = 2
 
+# Vida del jugador
+@export var max_health: float = 100.0  # Vida máxima
+var health: float = 100.0              # Vida actual (empieza llena)
+@export var decay_rate: float = 5.0    # Cuánta vida pierdes por segundo
+var is_dead: bool = false              # Para saber si ya morimos
+@onready var barra_vida_sprite = $CanvasLayer/BarraVidaSprite
+
 # Variables externas
 @onready var animationPlayer = $AnimatedSprite2D
 @onready var dash_particles = $Dash #PARTICULAS DASH
@@ -31,10 +38,21 @@ func _ready():
 	)
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+		
 	if is_dashing:
 		move_and_slide()
 		return # Salimos de la función aquí para no procesar gravedad ni teclas
 	# --------------------------------------
+	health -= decay_rate * delta
+	
+	actualizar_barra_visual()
+
+	# 3. VERIFICAR MUERTE
+	if health <= 0:
+		die() # Llamamos a la función de morir
+	
 	# Gravedad normal
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -121,9 +139,22 @@ func start_dash(input_direction: float):
 
 # --------------------------------------
 
+func die():
+	if is_dead: return
+	print("¡El personaje ha sucumbido a la infección!")
+	is_dead = true
+	velocity = Vector2.ZERO
+	# --- EFECTO DE MUERTE TEMPORAL (Sin Sprite) ---
+	animationPlayer.play("Death")
+	await animationPlayer.animation_finished
+	await get_tree().create_timer(1.0).timeout
+	# ------------------------------------
+	SceneTransitioner.transition_to_scene(get_tree().current_scene.scene_file_path)
+
+
 func animations(direction):
 	if is_dashing: return # No cambiar animaciones si estamos dashando
-	
+	if is_dead: return # Si está muerto, NO cambies la animación
 	# En suelo
 	if is_on_floor():
 		if direction == 0:
@@ -136,6 +167,17 @@ func animations(direction):
 			animationPlayer.play("Jump")
 			if jump_count == 2 and velocity.y > -30:
 				animationPlayer.play("Fall")
+				
+
+func actualizar_barra_visual():
+	if not barra_vida_sprite or max_health <= 0:
+		return
+	var porcentaje = clamp(health / max_health, 0.0, 1.0)
+	var total_frames = barra_vida_sprite.sprite_frames.get_frame_count("Vida") - 1
+	var frame_correspondiente = total_frames - int(porcentaje * total_frames)
+	
+	# Esto sigue funcionando igual
+	barra_vida_sprite.frame = frame_correspondiente
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
