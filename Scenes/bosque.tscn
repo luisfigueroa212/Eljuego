@@ -196,7 +196,6 @@ texture = SubResource("CompressedTexture2D_s73gh")
 21:0/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uxdu3"]
-load_path = "res://.godot/imported/mountains.png-36a3c1c0e9def91e9cbb6e8d3b2179a7.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_738v1"]
 texture = SubResource("CompressedTexture2D_uxdu3")

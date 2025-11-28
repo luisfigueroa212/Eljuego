@@ -5,6 +5,7 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 const MAX_JUMPS = 2
 
+
 # Vida del jugador
 @export var max_health: float = 100.0  # Vida máxima
 var health: float = 100.0              # Vida actual (empieza llena)
@@ -16,6 +17,7 @@ var is_dead: bool = false              # Para saber si ya morimos
 @onready var animationPlayer = $AnimatedSprite2D
 @onready var dash_particles = $Dash #PARTICULAS DASH
 @export var atacar: bool = false
+var infection_active: bool = false  # Por defecto apagada
 
 # --- VARIABLES DE MOVIMIENTO ---
 var normal_speed = SPEED
@@ -33,9 +35,15 @@ var is_in_dialogue: bool = false
 func _ready():
 	print("Player listo")
 	Dialogic.timeline_ended.connect(func():
-		print("✅ FIN DE DIÁLOGO DETECTADO - Desbloqueando controles")
-		is_in_dialogue = false
+		print("✅ FIN DE DIÁLOGO - Iniciando cinemática...")
 	)
+	if get_parent().is_in_group("infectado"):
+		infection_active = true
+		print("⚠️ ZONA PELIGROSA: La infección avanza")
+	else:
+		infection_active = false
+		print("✅ ZONA SEGURA: La infección se detuvo")
+	
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -45,14 +53,11 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return # Salimos de la función aquí para no procesar gravedad ni teclas
 	# --------------------------------------
-	health -= decay_rate * delta
-	
-	actualizar_barra_visual()
-
-	# 3. VERIFICAR MUERTE
-	if health <= 0:
-		die() # Llamamos a la función de morir
-	
+	if infection_active:
+		health -= decay_rate * delta
+		actualizar_barra_visual()
+		if health <= 0:
+			die()
 	# Gravedad normal
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -178,7 +183,6 @@ func actualizar_barra_visual():
 	
 	# Esto sigue funcionando igual
 	barra_vida_sprite.frame = frame_correspondiente
-
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 		SceneTransitioner.transition_to_scene("res://Scenes/elcorazon.tscn")

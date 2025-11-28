@@ -93,6 +93,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 [global_group]
 
 player=""
+infectado="Detecta donde baja la vida"
 
 [input]
 
