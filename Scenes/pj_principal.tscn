@@ -1,7 +1,7 @@
-[gd_scene load_steps=74 format=3 uid="uid://k7oaryn7l6kk"]
+[gd_scene load_steps=73 format=3 uid="uid://k7oaryn7l6kk"]
 
 [ext_resource type="Script" uid="uid://crltpx3qpqaay" path="res://Scripts/Scripts GENERALES/Player.gd" id="1_egxhw"]
-[ext_resource type="Texture2D" uid="uid://ccfpt2506tasn" path="res://Assets/Personajes sprites/5. Attack 131 x 56.png" id="2_wqrl3"]
+[ext_resource type="Texture2D" uid="uid://caayjbrgc54kd" path="res://Assets/Personajes sprites/Ataque arreglado.png" id="2_egxhw"]
 [ext_resource type="Texture2D" uid="uid://170mad0j2s20" path="res://Assets/Personajes sprites/8. Death 76 x 48.png" id="3_wkg1b"]
 [ext_resource type="Texture2D" uid="uid://cqgb34c4s5abx" path="res://Assets/Personajes sprites/4. Fall 48 x 48.png" id="4_ax7vl"]
 [ext_resource type="Texture2D" uid="uid://beivr0y277cpf" path="res://Assets/Personajes sprites/1. Idle 48 x 48.png" id="5_bn86n"]
@@ -12,27 +12,23 @@
 [ext_resource type="Texture2D" uid="uid://bsr4x02dqc8o7" path="res://Assets/Principales ASSETS/32x32_Arcane_8.png" id="10_1n4kp"]
 [ext_resource type="Texture2D" uid="uid://cp5r2q7t43l17" path="res://Assets/Personajes sprites/CrimsonFantasyGUI/AnimationSheets/GenericRegeneration/GenericRegeneration-Sheet.png" id="11_6tnjj"]
 [ext_resource type="PackedScene" uid="uid://c1g6xxd7kboc4" path="res://Scenes/Portal.tscn" id="12_wk575"]
-[ext_resource type="AudioStream" uid="uid://4j2t7b3hkl5p" path="res://Musica de fondo/violent-sword-slice-393839.mp3" id="13_bfthh"]
+[ext_resource type="AudioStream" uid="uid://cbgx8aoq3l0gd" path="res://Musica de fondo/SonidoEspada.mp3" id="13_egxhw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_erpdi"]
-atlas = ExtResource("2_wqrl3")
-region = Rect2(1340, 0, 134, 52)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqrl3"]
+atlas = ExtResource("2_egxhw")
+region = Rect2(816, 0, 136, 56)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2b3ge"]
-atlas = ExtResource("2_wqrl3")
-region = Rect2(1206, 0, 134, 52)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkg1b"]
+atlas = ExtResource("2_egxhw")
+region = Rect2(945, 0, 135, 56)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_beo0x"]
-atlas = ExtResource("2_wqrl3")
-region = Rect2(1072, 0, 134, 52)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax7vl"]
+atlas = ExtResource("2_egxhw")
+region = Rect2(1080, 0, 135, 56)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oboey"]
-atlas = ExtResource("2_wqrl3")
-region = Rect2(938, 0, 134, 52)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bw3b1"]
-atlas = ExtResource("2_wqrl3")
-region = Rect2(816, 0, 136, 52)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn86n"]
+atlas = ExtResource("2_egxhw")
+region = Rect2(1215, 0, 135, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gt2yb"]
 atlas = ExtResource("3_wkg1b")
@@ -198,19 +194,16 @@ region = Rect2(336, 0, 48, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_erpdi")
+"texture": SubResource("AtlasTexture_wqrl3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2b3ge")
+"texture": SubResource("AtlasTexture_wkg1b")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_beo0x")
+"texture": SubResource("AtlasTexture_ax7vl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oboey")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bw3b1")
+"texture": SubResource("AtlasTexture_bn86n")
 }],
 "loop": false,
 "name": &"Ataque1",
@@ -471,9 +464,8 @@ z_index = 5
 position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_nqo0h")
 animation = &"Ataque1"
-frame = 4
+frame = 3
 frame_progress = 1.0
-flip_h = true
 
 [node name="HitboxAtaque" type="Area2D" parent="AnimatedSprite2D"]
 position = Vector2(25, 0)
@@ -538,4 +530,4 @@ z_index = 0
 position = Vector2(-2, -16)
 
 [node name="SonidoEspada" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_bfthh")
+stream = ExtResource("13_egxhw")

@@ -11,6 +11,9 @@ const MAX_JUMPS = 2
 @export var atacar: bool = false
 @onready var hitbox_colision = %ColisionEspada
 
+@export var attack_cooldown: float = 0.2  # Tiempo de espera entre golpes
+var can_attack: bool = true               # ¿Está lista la espada?
+
 # Vida del jugador
 @export var max_health: float = 100.0  # Vida máxima
 var health: float = 100.0              # Vida actual (empieza llena)
@@ -64,29 +67,13 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return 
 
-	# --- CAMBIO IMPORTANTE 1: LA GRAVEDAD SUBE AQUÍ ---
-	# Calculamos la gravedad ANTES de decidir si atacamos o no.
-	# Así, aunque ataquemos, la gravedad sigue empujándonos hacia abajo.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	# --------------------------------------------------
-
-	# --- CAMBIO IMPORTANTE 2: EL ATAQUE ---
-	if atacar:
-		# 1. Leemos si el jugador quiere moverse
-		var direction_ataque = Input.get_axis("Izquierda", "Derecha")
-		
-		# 2. Permitimos el movimiento TOTAL (sin importar si está en suelo o aire)
-		if direction_ataque:
-			velocity.x = direction_ataque * current_speed
-		else:
-			# Si suelta la tecla, frenamos suavemente (fricción)
-			velocity.x = move_toward(velocity.x, 0, current_speed)
-		
-		# 3. Aplicamos el movimiento (incluyendo gravedad que viene de arriba)
-		move_and_slide()
-		
-		return # Salimos para no reiniciar lógicas, pero permitiendo movimiento
+	if Input.is_action_just_pressed("Ataque") and can_attack and not is_in_dialogue:
+		atacar = true
+		ejecutar_ataque()
+	
 	# Si estamos en diálogo
 	if is_in_dialogue:
 		velocity.x = 0
@@ -202,13 +189,11 @@ func start_dash(input_direction: float):
 	# Esperar el enfriamiento (Cooldown)
 	await get_tree().create_timer(dash_cooldown).timeout
 	can_dash = true
-	print("Dash listo de nuevo")
 
 # --------------------------------------
 
 func die():
 	if is_dead: return
-	print("¡El personaje ha sucumbido a la infección!")
 	is_dead = true
 	velocity = Vector2.ZERO
 	# --- EFECTO DE MUERTE TEMPORAL (Sin Sprite) ---
@@ -220,8 +205,9 @@ func die():
 
 
 func animations(direction):
-	if is_dashing: return # No cambiar animaciones si estamos dashando
-	if is_dead: return # Si está muerto, NO cambies la animación
+	if is_dashing: return 
+	if atacar: return 
+	if is_dead: return
 	# En suelo
 	if is_on_floor():
 		if direction == 0:
@@ -233,8 +219,7 @@ func animations(direction):
 		if velocity.y < 0:
 			animationPlayer.play("Jump")
 			if jump_count == 2 and velocity.y > -30:
-				animationPlayer.play("Fall")
-				
+				animationPlayer.play("Fall") # O la que tengas para caer
 
 func actualizar_barra_visual():
 	if not barra_vida_sprite or max_health <= 0:
@@ -254,48 +239,46 @@ func _controlar_hitbox():
 		var frame_actual = animationPlayer.frame
 		
 		if frame_actual == 3: 
-			hitbox_colision.disabled = false # ¡ENCENDER! (Hace daño)
-			print("Hitbox ACTIVO")
+			hitbox_colision.disabled = false
+			sonido_espada.pitch_scale = randf_range(0.9, 1.2)
+			sonido_espada.play()
 			
 		elif frame_actual == 4:
 			hitbox_colision.disabled = true  # ¡APAGAR! (Ya pasó el golpe)
-			print("Hitbox INACTIVO")
 	else:
 		hitbox_colision.disabled = true
 
 func ejecutar_ataque():
-	# --- PASO EXTRA: Girar antes de golpear ---
-	# Leemos si el jugador está presionando alguna flecha AHORA MISMO
-	var direction_ataque = Input.get_axis("Izquierda", "Derecha")
+	# 1. Bloqueamos inmediatamente para no atacar de nuevo
+	can_attack = false 
 	
+	# --- GIRO AUTOMÁTICO (Tu código de antes) ---
+	var direction_ataque = Input.get_axis("Izquierda", "Derecha")
 	if direction_ataque != 0:
-		if direction_ataque == 1: # Derecha
+		if direction_ataque == 1: 
 			animationPlayer.flip_h = false
-			# Mover Hitbox a la derecha
 			if has_node("AnimatedSprite2D/HitboxAtaque"):
 				$AnimatedSprite2D/HitboxAtaque.position.x = abs($AnimatedSprite2D/HitboxAtaque.position.x)
-				
-		elif direction_ataque == -1: # Izquierda
+		elif direction_ataque == -1: 
 			animationPlayer.flip_h = true
-			# Mover Hitbox a la izquierda
 			if has_node("AnimatedSprite2D/HitboxAtaque"):
 				$AnimatedSprite2D/HitboxAtaque.position.x = -abs($AnimatedSprite2D/HitboxAtaque.position.x)
-	# ------------------------------------------
+	# --------------------------------------------
 
-	# 1. Reproducir Animación
+	# 2. Acción
 	animationPlayer.play("Ataque1")
 	
-	# 2. Reproducir Sonido
-	sonido_espada.pitch_scale = randf_range(0.9, 1.2)
-	sonido_espada.play()
-	
-	# 3. Esperar a que termine
+	# 3. Esperar a que termine la ANIMACIÓN
 	await animationPlayer.animation_finished
 	
-	# 4. Liberar al jugador
-	atacar = false
-	# Opcional: Volver a Idle inmediatamente
-	animationPlayer.play("Idle")
+	# 4. Soltamos el estado visual (para que pueda volver a correr/idle)
+	atacar = false 
+	
+	# 5. COOLDOWN: Esperamos el tiempo extra (0.2s) antes de permitir otro golpe
+	await get_tree().create_timer(attack_cooldown).timeout
+	
+	# 6. ¡Listo para la próxima!
+	can_attack = true
 	
 func _on_hitbox_body_entered(body):
 	# Verificamos si lo que tocamos tiene la función "recibir_dano"
