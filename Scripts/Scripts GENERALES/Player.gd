@@ -56,51 +56,76 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	
-	if is_dead:
-		return
+	# 1. BLOQUEOS TOTALES
+	if is_dead: return
+
+	# Si estamos haciendo Dash (Teleport o movimiento rápido), ignoramos gravedad
 	if is_dashing:
 		move_and_slide()
 		return 
 
+	# --- CAMBIO IMPORTANTE 1: LA GRAVEDAD SUBE AQUÍ ---
+	# Calculamos la gravedad ANTES de decidir si atacamos o no.
+	# Así, aunque ataquemos, la gravedad sigue empujándonos hacia abajo.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	# --------------------------------------------------
+
+	# --- CAMBIO IMPORTANTE 2: EL ATAQUE ---
 	if atacar:
-		velocity.x = move_toward(velocity.x, 0, current_speed)
-		velocity.y = 0
-		move_and_slide()
-		return
+		# 1. Leemos si el jugador quiere moverse
+		var direction_ataque = Input.get_axis("Izquierda", "Derecha")
 		
+		# 2. Permitimos el movimiento TOTAL (sin importar si está en suelo o aire)
+		if direction_ataque:
+			velocity.x = direction_ataque * current_speed
+		else:
+			# Si suelta la tecla, frenamos suavemente (fricción)
+			velocity.x = move_toward(velocity.x, 0, current_speed)
+		
+		# 3. Aplicamos el movimiento (incluyendo gravedad que viene de arriba)
+		move_and_slide()
+		
+		return # Salimos para no reiniciar lógicas, pero permitiendo movimiento
+	# Si estamos en diálogo
 	if is_in_dialogue:
 		velocity.x = 0
 		move_and_slide()
 		return
-	
-	# Gravedad
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 
-	# Infección
-	if infection_active:
-		health -= decay_rate * delta
-		actualizar_barra_visual()
-		if health <= 0:
-			die()
+	# --- 3. CONTROLES DEL JUGADOR ---
 	
+	# A. Detectar INTENTO de ataque
 	if Input.is_action_just_pressed("Ataque"):
+		
+		# GIRO AUTOMÁTICO ANTES DE ATACAR
+		var input_dir = Input.get_axis("Izquierda", "Derecha")
+		if input_dir != 0:
+			if input_dir == 1: # Derecha
+				animationPlayer.flip_h = false 
+				if has_node("AnimatedSprite2D/HitboxAtaque"):
+					$AnimatedSprite2D/HitboxAtaque.position.x = abs($AnimatedSprite2D/HitboxAtaque.position.x)
+			elif input_dir == -1: # Izquierda
+				animationPlayer.flip_h = true
+				if has_node("AnimatedSprite2D/HitboxAtaque"):
+					$AnimatedSprite2D/HitboxAtaque.position.x = -abs($AnimatedSprite2D/HitboxAtaque.position.x)
+		
 		atacar = true
 		ejecutar_ataque()
-		return
+		return 
 
 	# B. Movimiento Horizontal
 	var direction := Input.get_axis("Izquierda", "Derecha")
 	
-	# B.1 Dash (Inicio)
+	# Dash
 	if Input.is_action_just_pressed("Dash") and can_dash:
-		start_dash(direction)
+		start_dash(direction) 
 		return
-# B.2 Caminar (Movimiento Normal)
+
+	# Caminar
 	if direction:
 		velocity.x = direction * current_speed
 	else:
-		# Frenado suave (fricción)
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 	
 	# C. Saltos
@@ -110,18 +135,14 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
 		
-	# D. APLICAR MOVIMIENTO NORMAL
-	# Este move_and_slide solo se ejecuta si no hubo return antes
 	move_and_slide()
 
-	# E. GESTIÓN DE ANIMACIONES
+	# --- 4. ANIMACIONES ---
 	animations(direction)
-	
-	# Dirección del sprite (Flip)
-	if direction != 0:
+		
+	if not is_dashing and not atacar: 
 		if direction == 1:
 			animationPlayer.flip_h = false
-			# Ajusta la posición de tu hitbox si es necesario
 			if has_node("AnimatedSprite2D/HitboxAtaque"):
 				$AnimatedSprite2D/HitboxAtaque.position.x = abs($AnimatedSprite2D/HitboxAtaque.position.x)
 		elif direction == -1:
@@ -130,7 +151,6 @@ func _physics_process(delta: float) -> void:
 				$AnimatedSprite2D/HitboxAtaque.position.x = -abs($AnimatedSprite2D/HitboxAtaque.position.x)
 
 	# --- 4. ANIMACIONES ---
-	animations(direction)
 	
 	if not is_dashing and not atacar: # Solo giramos si no estamos ocupados
 		if direction == 1:
@@ -244,6 +264,24 @@ func _controlar_hitbox():
 		hitbox_colision.disabled = true
 
 func ejecutar_ataque():
+	# --- PASO EXTRA: Girar antes de golpear ---
+	# Leemos si el jugador está presionando alguna flecha AHORA MISMO
+	var direction_ataque = Input.get_axis("Izquierda", "Derecha")
+	
+	if direction_ataque != 0:
+		if direction_ataque == 1: # Derecha
+			animationPlayer.flip_h = false
+			# Mover Hitbox a la derecha
+			if has_node("AnimatedSprite2D/HitboxAtaque"):
+				$AnimatedSprite2D/HitboxAtaque.position.x = abs($AnimatedSprite2D/HitboxAtaque.position.x)
+				
+		elif direction_ataque == -1: # Izquierda
+			animationPlayer.flip_h = true
+			# Mover Hitbox a la izquierda
+			if has_node("AnimatedSprite2D/HitboxAtaque"):
+				$AnimatedSprite2D/HitboxAtaque.position.x = -abs($AnimatedSprite2D/HitboxAtaque.position.x)
+	# ------------------------------------------
+
 	# 1. Reproducir Animación
 	animationPlayer.play("Ataque1")
 	
@@ -256,7 +294,7 @@ func ejecutar_ataque():
 	
 	# 4. Liberar al jugador
 	atacar = false
-	# Opcional: Volver a Idle inmediatamente para que no se quede congelado un frame
+	# Opcional: Volver a Idle inmediatamente
 	animationPlayer.play("Idle")
 	
 func _on_hitbox_body_entered(body):
