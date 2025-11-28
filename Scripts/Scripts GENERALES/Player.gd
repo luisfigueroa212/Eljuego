@@ -5,6 +5,11 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 const MAX_JUMPS = 2
 
+# Al principio con las variables
+@onready var hitbox_ataque = $AnimatedSprite2D/HitboxAtaque # Ajusta la ruta si es necesario
+@onready var sonido_espada = $SonidoEspada
+@export var atacar: bool = false
+@onready var hitbox_colision = %ColisionEspada
 
 # Vida del jugador
 @export var max_health: float = 100.0  # Vida máxima
@@ -16,8 +21,8 @@ var is_dead: bool = false              # Para saber si ya morimos
 # Variables externas
 @onready var animationPlayer = $AnimatedSprite2D
 @onready var dash_particles = $Dash #PARTICULAS DASH
-@export var atacar: bool = false
 var infection_active: bool = false  # Por defecto apagada
+
 
 # --- VARIABLES DE MOVIMIENTO ---
 var normal_speed = SPEED
@@ -43,74 +48,111 @@ func _ready():
 	else:
 		infection_active = false
 		print("✅ ZONA SEGURA: La infección se detuvo")
-	
+		
+	hitbox_colision.disabled = true
+	animationPlayer.frame_changed.connect(_controlar_hitbox)
+	animationPlayer.animation_finished.connect(func(): hitbox_colision.disabled = true)
+	hitbox_ataque.body_entered.connect(_on_hitbox_body_entered)
 
 func _physics_process(delta: float) -> void:
+	
 	if is_dead:
 		return
-		
 	if is_dashing:
 		move_and_slide()
-		return # Salimos de la función aquí para no procesar gravedad ni teclas
-	# --------------------------------------
+		return 
+
+	if atacar:
+		velocity.x = move_toward(velocity.x, 0, current_speed)
+		velocity.y = 0
+		move_and_slide()
+		return
+		
+	if is_in_dialogue:
+		velocity.x = 0
+		move_and_slide()
+		return
+	
+	# Gravedad
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Infección
 	if infection_active:
 		health -= decay_rate * delta
 		actualizar_barra_visual()
 		if health <= 0:
 			die()
-	# Gravedad normal
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-		
-	if is_in_dialogue:
-			velocity.x = 0         # Aseguramos que no se deslice
-			move_and_slide()       # Aplicamos gravedad
-			return                 # ¡STOP! No leemos teclas
+	
+	if Input.is_action_just_pressed("Ataque"):
+		atacar = true
+		ejecutar_ataque()
+		return
 
-	# Variables
+	# B. Movimiento Horizontal
 	var direction := Input.get_axis("Izquierda", "Derecha")
 	
-	if !atacar:
-	
-		if Input.is_action_just_pressed("Dash") and can_dash:
-			start_dash(direction)
-			return
-		# ------------------------------
-		if direction:
-			velocity.x = direction * current_speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, current_speed)
-		
-		# Salto doble
-		if is_on_floor():
-			jump_count = 0
-		if Input.is_action_just_pressed("ui_accept") and jump_count < MAX_JUMPS:
-			velocity.y = JUMP_VELOCITY
-			jump_count += 1
-		
-		if Input.is_action_just_pressed("Ataque"):
-			atacar = true
-		move_and_slide()
+	# B.1 Dash (Inicio)
+	if Input.is_action_just_pressed("Dash") and can_dash:
+		start_dash(direction)
+		return
+# B.2 Caminar (Movimiento Normal)
+	if direction:
+		velocity.x = direction * current_speed
 	else:
-		animationPlayer.play("Ataque1")
-		await (animationPlayer.animation_finished)
-		atacar = false
-
-	# Llamar la función animaciones
-	animations(direction)
+		# Frenado suave (fricción)
+		velocity.x = move_toward(velocity.x, 0, current_speed)
+	
+	# C. Saltos
+	if is_on_floor():
+		jump_count = 0
+	if Input.is_action_just_pressed("ui_accept") and jump_count < MAX_JUMPS:
+		velocity.y = JUMP_VELOCITY
+		jump_count += 1
 		
-	# Dirección del sprite
+	# D. APLICAR MOVIMIENTO NORMAL
+	# Este move_and_slide solo se ejecuta si no hubo return antes
+	move_and_slide()
+
+	# E. GESTIÓN DE ANIMACIONES
+	animations(direction)
+	
+	# Dirección del sprite (Flip)
+	if direction != 0:
+		if direction == 1:
+			animationPlayer.flip_h = false
+			# Ajusta la posición de tu hitbox si es necesario
+			if has_node("AnimatedSprite2D/HitboxAtaque"):
+				$AnimatedSprite2D/HitboxAtaque.position.x = abs($AnimatedSprite2D/HitboxAtaque.position.x)
+		elif direction == -1:
+			animationPlayer.flip_h = true
+			if has_node("AnimatedSprite2D/HitboxAtaque"):
+				$AnimatedSprite2D/HitboxAtaque.position.x = -abs($AnimatedSprite2D/HitboxAtaque.position.x)
+
+	# --- 4. ANIMACIONES ---
+	animations(direction)
+	
+	if not is_dashing and not atacar: # Solo giramos si no estamos ocupados
+		if direction == 1:
+			animationPlayer.flip_h = false
+			# Mover Hitbox a la DERECHA (Positivo)
+			# Cambia '30' por la distancia que tenga tu hitbox en el editor
+			$AnimatedSprite2D/HitboxAtaque.position.x = 25 
+			
+		elif direction == -1:
+			animationPlayer.flip_h = true
+			# Mover Hitbox a la IZQUIERDA (Negativo)
+			$AnimatedSprite2D/HitboxAtaque.position.x = -25
+			
 	if not is_dashing: 
 		if direction == 1:
 			animationPlayer.flip_h = false
 		elif direction == -1:
 			animationPlayer.flip_h = true
-
 # --- NUEVO DASH: Función de Control ---
 func start_dash(input_direction: float):
 	is_dashing = true
 	can_dash = false
-	
 	dash_particles.emitting = true #PARTICULAS DASH
 	# Determinar la dirección del dash
 	var dash_dir = input_direction
@@ -184,5 +226,41 @@ func actualizar_barra_visual():
 	# Esto sigue funcionando igual
 	barra_vida_sprite.frame = frame_correspondiente
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-		SceneTransitioner.transition_to_scene("res://Scenes/elcorazon.tscn")
+func _controlar_hitbox():
+	# Solo nos importa si estamos haciendo la animación de Ataque
+	if animationPlayer.animation == "Ataque1":
+		
+		# OBTENER EL FRAME ACTUAL
+		var frame_actual = animationPlayer.frame
+		
+		if frame_actual == 3: 
+			hitbox_colision.disabled = false # ¡ENCENDER! (Hace daño)
+			print("Hitbox ACTIVO")
+			
+		elif frame_actual == 4:
+			hitbox_colision.disabled = true  # ¡APAGAR! (Ya pasó el golpe)
+			print("Hitbox INACTIVO")
+	else:
+		hitbox_colision.disabled = true
+
+func ejecutar_ataque():
+	# 1. Reproducir Animación
+	animationPlayer.play("Ataque1")
+	
+	# 2. Reproducir Sonido
+	sonido_espada.pitch_scale = randf_range(0.9, 1.2)
+	sonido_espada.play()
+	
+	# 3. Esperar a que termine
+	await animationPlayer.animation_finished
+	
+	# 4. Liberar al jugador
+	atacar = false
+	# Opcional: Volver a Idle inmediatamente para que no se quede congelado un frame
+	animationPlayer.play("Idle")
+	
+func _on_hitbox_body_entered(body):
+	# Verificamos si lo que tocamos tiene la función "recibir_dano"
+	if body.has_method("recibir_dano"):
+		body.recibir_dano(10)
+		

@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://bn0n0lj4jkgvw"]
+
+[ext_resource type="Script" uid="uid://b5aav5tx2ob1i" path="res://muneco.gd" id="1_j7mwt"]
+[ext_resource type="Texture2D" uid="uid://bty3awep1m7go" path="res://Assets/Principales ASSETS/64X128_Idle_Free.png" id="2_uubdr"]
+[ext_resource type="AudioStream" uid="uid://m1td1tk3gne7" path="res://Musica de fondo/Closed Mouth Medium Moans 1 (mp3cut.net).mp3" id="3_8rojd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxrsg"]
+atlas = ExtResource("2_uubdr")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xkwc"]
+atlas = ExtResource("2_uubdr")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2ulb"]
+atlas = ExtResource("2_uubdr")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1igry"]
+atlas = ExtResource("2_uubdr")
+region = Rect2(384, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t88d5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxrsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xkwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2ulb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1igry")
+}],
+"loop": true,
+"name": &"Muñeca",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p5vj"]
+size = Vector2(58, 91)
+
+[node name="Muñeco" type="CharacterBody2D"]
+script = ExtResource("1_j7mwt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t88d5")
+animation = &"Muñeca"
+frame_progress = 0.15285596
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.99999964, 0)
+scale = Vector2(0.8022593, 0.8390213)
+shape = SubResource("RectangleShape2D_6p5vj")
+
+[node name="Sangre" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(1, 0, 0, 1)
+
+[node name="SonidoGolpe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8rojd")

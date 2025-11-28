@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://m1td1tk3gne7"
+path="res://.godot/imported/Closed Mouth Medium Moans 1 (mp3cut.net).mp3-10760de5c43d128b49123ebdc1a18fb5.mp3str"
+
+[deps]
+
+source_file="res://Musica de fondo/Closed Mouth Medium Moans 1 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Closed Mouth Medium Moans 1 (mp3cut.net).mp3-10760de5c43d128b49123ebdc1a18fb5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

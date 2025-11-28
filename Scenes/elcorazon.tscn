@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=4 uid="uid://drt61wjy8wu6i"]
+[gd_scene load_steps=91 format=4 uid="uid://drt61wjy8wu6i"]
 
 [ext_resource type="Script" uid="uid://cm3gs8mtuie1" path="res://Scripts/El corazon/El corazon cielo.gd" id="1_c3jhy"]
 [ext_resource type="Texture2D" uid="uid://5burvggs31jm" path="res://Assets/Principales ASSETS/night-town-background-files (NO ELIMINAR)/layers/night-town-background-mountains.png" id="2_ge042"]
@@ -6,15 +6,14 @@
 [ext_resource type="Script" uid="uid://0k75gixwr2j6" path="res://Scripts/El corazon/El corazon nubes.gd" id="3_gwqau"]
 [ext_resource type="Texture2D" uid="uid://cnei8wnf4q3lh" path="res://Assets/Principales ASSETS/night-town-background-files (NO ELIMINAR)/layers/night-town-background-forest.png" id="3_syn20"]
 [ext_resource type="Texture2D" uid="uid://cx60v4o2vfjwv" path="res://Assets/Principales ASSETS/night-town-background-files (NO ELIMINAR)/layers/night-town-background-sky (4).png" id="4_7ximp"]
-[ext_resource type="Script" uid="uid://crltpx3qpqaay" path="res://Scripts/Scripts GENERALES/Player.gd" id="4_c3jhy"]
 [ext_resource type="Texture2D" uid="uid://lb17radl53in" path="res://Assets/Principales ASSETS/night-town-background-files (NO ELIMINAR)/layers/night-town-background-town.png" id="4_syn20"]
 [ext_resource type="Texture2D" uid="uid://cqgb34c4s5abx" path="res://Assets/Personajes sprites/4. Fall 48 x 48.png" id="5_6h6is"]
 [ext_resource type="Texture2D" uid="uid://cwkgbpkwvdevs" path="res://Assets/Principales ASSETS/Gothic-Horror-Files(NO ELIMINAR)/PNG/layers/tiles.png" id="5_c3jhy"]
 [ext_resource type="Texture2D" uid="uid://beivr0y277cpf" path="res://Assets/Personajes sprites/1. Idle 48 x 48.png" id="6_7ximp"]
 [ext_resource type="Texture2D" uid="uid://425licvcfjud" path="res://Assets/Personajes sprites/3. Jump 48 x 48.png" id="7_gwqau"]
 [ext_resource type="Texture2D" uid="uid://lqh6mou2mvp7" path="res://Assets/Personajes sprites/2. Run 48 x 48.png" id="8_81hhj"]
-[ext_resource type="Script" uid="uid://d1i2b10pa0dxo" path="res://Scripts/Scripts GENERALES/camera_2d.gd" id="9_o477a"]
-[ext_resource type="Texture2D" uid="uid://q5q87dpt30k" path="res://Assets/Personajes sprites/6. Dash 112 x 56.png" id="10_q1wih"]
+[ext_resource type="PackedScene" uid="uid://k7oaryn7l6kk" path="res://Scenes/pj_principal.tscn" id="9_gy3mb"]
+[ext_resource type="Texture2D" uid="uid://ccfpt2506tasn" path="res://Assets/Personajes sprites/5. Attack 131 x 56.png" id="10_nqtdo"]
 [ext_resource type="Texture2D" uid="uid://170mad0j2s20" path="res://Assets/Personajes sprites/8. Death 76 x 48.png" id="11_chclo"]
 [ext_resource type="Texture2D" uid="uid://pdatwr7vlja3" path="res://Assets/Personajes sprites/IdleSanguinario.png" id="12_wpj1i"]
 [ext_resource type="Script" uid="uid://b83nd7s58e86g" path="res://Scripts/El corazon/El corazon sanguinario_npc.gd" id="15_cdjnw"]
@@ -22,9 +21,7 @@
 [ext_resource type="Resource" uid="uid://1uddqc23xq0m" path="res://TimelinesDialogic/El_Sanguinario.dch" id="16_nan3c"]
 [ext_resource type="Texture2D" uid="uid://dxlapwvib6xv6" path="res://Assets/Principales ASSETS/portal.png" id="16_nqo0h"]
 [ext_resource type="AudioStream" uid="uid://bj7gadepik8pj" path="res://Musica de fondo/A Nocturne for All.mp3" id="16_o477a"]
-[ext_resource type="Texture2D" uid="uid://bsr4x02dqc8o7" path="res://Assets/Principales ASSETS/32x32_Arcane_8.png" id="16_q1wih"]
-[ext_resource type="Texture2D" uid="uid://cp5r2q7t43l17" path="res://Assets/Personajes sprites/CrimsonFantasyGUI/AnimationSheets/GenericRegeneration/GenericRegeneration-Sheet.png" id="18_gy3mb"]
-[ext_resource type="PackedScene" uid="uid://c1g6xxd7kboc4" path="res://Scenes/Portal.tscn" id="25_nqtdo"]
+[ext_resource type="PackedScene" uid="uid://bn0n0lj4jkgvw" path="res://Scenes/muñeco.tscn" id="27_erpdi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nan3c"]
 texture = ExtResource("2_ge042")
@@ -1006,44 +1003,24 @@ sources/0 = SubResource("TileSetAtlasSource_gwqau")
 distance = 86.66647
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_erpdi"]
-atlas = ExtResource("10_q1wih")
-region = Rect2(0, 0, 112, 56)
+atlas = ExtResource("10_nqtdo")
+region = Rect2(1340, 0, 134, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2b3ge"]
-atlas = ExtResource("10_q1wih")
-region = Rect2(112, 0, 112, 56)
+atlas = ExtResource("10_nqtdo")
+region = Rect2(1206, 0, 134, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_beo0x"]
-atlas = ExtResource("10_q1wih")
-region = Rect2(224, 0, 112, 56)
+atlas = ExtResource("10_nqtdo")
+region = Rect2(1072, 0, 134, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oboey"]
-atlas = ExtResource("10_q1wih")
-region = Rect2(336, 0, 112, 56)
+atlas = ExtResource("10_nqtdo")
+region = Rect2(938, 0, 134, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bw3b1"]
-atlas = ExtResource("10_q1wih")
-region = Rect2(448, 0, 112, 56)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_spvna"]
-atlas = ExtResource("10_q1wih")
-region = Rect2(560, 0, 112, 56)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdtt4"]
-atlas = ExtResource("10_q1wih")
-region = Rect2(672, 0, 112, 56)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p6tlw"]
-atlas = ExtResource("10_q1wih")
-region = Rect2(784, 0, 112, 56)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uevkg"]
-atlas = ExtResource("10_q1wih")
-region = Rect2(896, 0, 112, 56)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qyklh"]
-atlas = ExtResource("10_q1wih")
-region = Rect2(1008, 0, 112, 56)
+atlas = ExtResource("10_nqtdo")
+region = Rect2(816, 0, 136, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gt2yb"]
 atlas = ExtResource("11_chclo")
@@ -1222,24 +1199,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bw3b1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_spvna")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gdtt4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p6tlw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uevkg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qyklh")
 }],
-"loop": false,
-"name": &"Dash",
+"loop": true,
+"name": &"Ataque1",
 "speed": 8.0
 }, {
 "frames": [{
@@ -1398,108 +1360,24 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nqtdo"]
-radius = 6.0
-height = 38.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_msb62"]
-atlas = ExtResource("18_gy3mb")
-region = Rect2(0, 160, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lstg7"]
-atlas = ExtResource("18_gy3mb")
-region = Rect2(0, 144, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_av2gx"]
-atlas = ExtResource("18_gy3mb")
-region = Rect2(0, 128, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tm0k5"]
-atlas = ExtResource("18_gy3mb")
-region = Rect2(0, 112, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ymb45"]
-atlas = ExtResource("18_gy3mb")
-region = Rect2(0, 96, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fq8oy"]
-atlas = ExtResource("18_gy3mb")
-region = Rect2(0, 80, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a53yn"]
-atlas = ExtResource("18_gy3mb")
-region = Rect2(0, 64, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ga4fg"]
-atlas = ExtResource("18_gy3mb")
-region = Rect2(0, 48, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iixqp"]
-atlas = ExtResource("18_gy3mb")
-region = Rect2(0, 32, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_in45v"]
-atlas = ExtResource("18_gy3mb")
-region = Rect2(0, 16, 64, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h108g"]
-atlas = ExtResource("18_gy3mb")
-region = Rect2(0, 0, 64, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qa417"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_msb62")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lstg7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_av2gx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tm0k5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ymb45")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fq8oy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a53yn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ga4fg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iixqp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_in45v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h108g")
-}],
-"loop": true,
-"name": &"Vida",
-"speed": 5.0
-}]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_q1wih"]
 radius = 13.200089
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q1wih"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gwqau"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_81hhj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_chclo"]
 blend_mode = 1
 
-[sub_resource type="Curve" id="Curve_chclo"]
+[sub_resource type="Curve" id="Curve_gy3mb"]
 _limits = [0.0, 0.3, 0.0, 1.0]
 _data = [Vector2(0, 0.0028301775), 0.0, 1.5426292, 0, 0, Vector2(0.49512672, 0.3), 0.0, 0.0, 0, 0, Vector2(0.49513674, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 0.004245281), -1.5372944, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_gy3mb"]
-curve = SubResource("Curve_chclo")
+curve = SubResource("Curve_gy3mb")
 
 [sub_resource type="Gradient" id="Gradient_nqo0h"]
 colors = PackedColorArray(1, 1, 1, 0.078431375, 1, 1, 1, 1)
@@ -1507,24 +1385,24 @@ colors = PackedColorArray(1, 1, 1, 0.078431375, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_nqtdo"]
 gradient = SubResource("Gradient_nqo0h")
 
-[sub_resource type="Curve" id="Curve_ril2n"]
+[sub_resource type="Curve" id="Curve_nqtdo"]
 _limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_erpdi"]
+[sub_resource type="Curve" id="Curve_ril2n"]
 _limits = [0.0, 30.0, 0.0, 1.0]
 _data = [Vector2(0, 15), 0.0, 179.57547, 0, 0, Vector2(0.25730994, 30), 0.0, 0.0, 0, 0, Vector2(1, 29.716982), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Curve" id="Curve_2b3ge"]
+[sub_resource type="Curve" id="Curve_erpdi"]
 
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_beo0x"]
-curve_x = SubResource("Curve_ril2n")
-curve_y = SubResource("Curve_erpdi")
-curve_z = SubResource("Curve_2b3ge")
+curve_x = SubResource("Curve_nqtdo")
+curve_y = SubResource("Curve_ril2n")
+curve_z = SubResource("Curve_erpdi")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oboey"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2b3ge"]
 particle_flag_disable_z = true
 emission_shape_offset = Vector3(0, -200, 0)
 emission_shape_scale = Vector3(350, 1, 1)
@@ -1535,11 +1413,6 @@ scale_min = 0.19999999
 scale_over_velocity_curve = SubResource("CurveXYZTexture_beo0x")
 color_initial_ramp = SubResource("GradientTexture1D_nqtdo")
 alpha_curve = SubResource("CurveTexture_gy3mb")
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gwqau"]
-normal = Vector2(1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_81hhj"]
 
 [node name="Elcorazon" type="Node2D"]
 
@@ -1604,66 +1477,6 @@ position = Vector2(-1279.9968, 248.33273)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("WorldBoundaryShape2D_7ximp")
 
-[node name="PJPrincipal" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(0, 86)
-script = ExtResource("4_c3jhy")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PJPrincipal"]
-z_index = 5
-position = Vector2(0, 3)
-sprite_frames = SubResource("SpriteFrames_nqo0h")
-animation = &"Idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PJPrincipal"]
-position = Vector2(1, 3)
-shape = SubResource("CapsuleShape2D_nqtdo")
-debug_color = Color(0.176035, 0.557128, 0.384802, 0.42)
-
-[node name="Particulas infeccion" type="CPUParticles2D" parent="PJPrincipal"]
-position = Vector2(1, 0)
-amount = 16
-lifetime = 0.1
-preprocess = 0.37
-speed_scale = 0.24
-randomness = 1.0
-lifetime_randomness = 1.0
-emission_shape = 1
-emission_sphere_radius = 6.24
-color = Color(0.45860013, 0.45860013, 0.33312315, 1)
-
-[node name="Dash" type="CPUParticles2D" parent="PJPrincipal"]
-z_index = 1
-position = Vector2(0, 8)
-rotation = 3.0526543
-emitting = false
-amount = 30
-texture = ExtResource("16_q1wih")
-lifetime = 0.5
-one_shot = true
-explosiveness = 0.09
-emission_shape = 3
-emission_rect_extents = Vector2(1, 1)
-gravity = Vector2(0, 0)
-initial_velocity_min = 45.8
-initial_velocity_max = 68.71
-scale_amount_min = 0.2
-scale_amount_max = 0.4
-color = Color(0.79764247, 0.9164289, 0.74174297, 0.3647059)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="PJPrincipal"]
-
-[node name="BarraVida" type="TextureProgressBar" parent="PJPrincipal/CanvasLayer"]
-offset_left = 3.0
-offset_right = 43.0
-offset_bottom = 40.0
-
-[node name="BarraVidaSprite" type="AnimatedSprite2D" parent="PJPrincipal/CanvasLayer"]
-modulate = Color(0.6886219, 0.6886219, 0.6886219, 1)
-position = Vector2(210, 100)
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_qa417")
-animation = &"Vida"
-
 [node name="SanguinarioNPC" type="CharacterBody2D" parent="."]
 modulate = Color(0.7016299, 0.7016299, 0.7016299, 1)
 position = Vector2(527, 86)
@@ -1690,27 +1503,6 @@ position = Vector2(-2, -11)
 scale = Vector2(2.1065927, 2.6284459)
 shape = SubResource("CircleShape2D_q1wih")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-position = Vector2(2, -12)
-zoom = Vector2(3, 3)
-script = ExtResource("9_o477a")
-target = NodePath("../PJPrincipal")
-
-[node name="Degrade" type="Sprite2D" parent="Camera2D"]
-modulate = Color(0, 0, 0, 0.20392157)
-position = Vector2(-4, -6.0000076)
-scale = Vector2(1.3315655, 1.6115655)
-texture = ExtResource("15_gwqau")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Camera2D"]
-material = SubResource("CanvasItemMaterial_q1wih")
-position = Vector2(-2, 12)
-amount = 100
-lifetime = 0.5
-preprocess = 0.5
-visibility_rect = Rect2(-350, -200, 700, 400)
-process_material = SubResource("ParticleProcessMaterial_oboey")
-
 [node name="Fronteras" type="StaticBody2D" parent="."]
 position = Vector2(9, 98)
 
@@ -1729,6 +1521,32 @@ stream = ExtResource("16_o477a")
 volume_db = -32.032
 autoplay = true
 
-[node name="Area2D" parent="." instance=ExtResource("25_nqtdo")]
-z_index = 0
-position = Vector2(467, 68)
+[node name="Muñeco" parent="." instance=ExtResource("27_erpdi")]
+position = Vector2(-211.00002, 85)
+scale = Vector2(0.60349214, 0.57966495)
+
+[node name="PJPrincipal" parent="." instance=ExtResource("9_gy3mb")]
+position = Vector2(0, 86)
+
+[node name="Camera2D2" type="Camera2D" parent="PJPrincipal"]
+position = Vector2(-1, -90)
+zoom = Vector2(3, 3)
+limit_left = -320
+limit_top = -190
+limit_right = 1215
+drag_horizontal_enabled = true
+
+[node name="Degrade" type="Sprite2D" parent="PJPrincipal/Camera2D2"]
+modulate = Color(0, 0, 0, 0.20392157)
+position = Vector2(-4, -6.0000076)
+scale = Vector2(4.43913, 11.350767)
+texture = ExtResource("15_gwqau")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="PJPrincipal/Camera2D2"]
+material = SubResource("CanvasItemMaterial_chclo")
+position = Vector2(-2, 12)
+amount = 100
+lifetime = 0.5
+preprocess = 0.5
+visibility_rect = Rect2(-350, -200, 700, 400)
+process_material = SubResource("ParticleProcessMaterial_2b3ge")

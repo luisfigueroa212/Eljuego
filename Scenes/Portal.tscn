@@ -33,7 +33,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsgt0"]
-size = Vector2(31, 82)
+size = Vector2(36, 82)
 
 [node name="Area2D" type="Area2D"]
 z_index = -1
@@ -44,5 +44,5 @@ sprite_frames = SubResource("SpriteFrames_koq56")
 animation = &"Portal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_hsgt0")
