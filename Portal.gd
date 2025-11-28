@@ -1,5 +1,5 @@
 extends Area2D
-@export var next_scene_path: String = "res://Scenes/menu.tscn"
+@export var next_scene_path: String = "res://Scenes/PeleaJefe.tscn"
 
 func _ready():
 	hide() 

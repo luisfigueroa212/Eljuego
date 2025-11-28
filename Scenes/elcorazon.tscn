@@ -23,7 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://bj7gadepik8pj" path="res://Musica de fondo/A Nocturne for All.mp3" id="16_o477a"]
 [ext_resource type="PackedScene" uid="uid://bn0n0lj4jkgvw" path="res://Scenes/Prefabs personajes/muñeco.tscn" id="27_erpdi"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nan3c"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chclo"]
 texture = ExtResource("2_ge042")
 0:5/0 = 0
 1:5/0 = 0
@@ -79,9 +79,9 @@ texture = ExtResource("2_ge042")
 5:13/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_q1wih"]
-sources/4 = SubResource("TileSetAtlasSource_nan3c")
+sources/4 = SubResource("TileSetAtlasSource_chclo")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chclo"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gy3mb"]
 texture = ExtResource("3_syn20")
 0:0/0 = 0
 1:0/0 = 0
@@ -109,9 +109,9 @@ texture = ExtResource("3_syn20")
 3:5/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_gy3mb"]
-sources/0 = SubResource("TileSetAtlasSource_chclo")
+sources/0 = SubResource("TileSetAtlasSource_gy3mb")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6h6is"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqo0h"]
 texture = ExtResource("4_syn20")
 margins = Vector2i(12, 2)
 texture_region_size = Vector2i(17, 16)
@@ -265,9 +265,9 @@ texture_region_size = Vector2i(17, 16)
 5:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7ximp"]
-sources/2 = SubResource("TileSetAtlasSource_6h6is")
+sources/2 = SubResource("TileSetAtlasSource_nqo0h")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwqau"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqtdo"]
 texture = ExtResource("5_c3jhy")
 0:0/0 = 0
 1:0/0 = 0
@@ -997,7 +997,7 @@ texture = ExtResource("5_c3jhy")
 64:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_81hhj"]
-sources/0 = SubResource("TileSetAtlasSource_gwqau")
+sources/0 = SubResource("TileSetAtlasSource_nqtdo")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7ximp"]
 distance = 86.66647
