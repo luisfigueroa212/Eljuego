@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://beivr0y277cpf" path="res://Assets/Personajes sprites/1. Idle 48 x 48.png" id="6_7ximp"]
 [ext_resource type="Texture2D" uid="uid://425licvcfjud" path="res://Assets/Personajes sprites/3. Jump 48 x 48.png" id="7_gwqau"]
 [ext_resource type="Texture2D" uid="uid://lqh6mou2mvp7" path="res://Assets/Personajes sprites/2. Run 48 x 48.png" id="8_81hhj"]
-[ext_resource type="PackedScene" uid="uid://k7oaryn7l6kk" path="res://Scenes/pj_principal.tscn" id="9_gy3mb"]
+[ext_resource type="PackedScene" uid="uid://k7oaryn7l6kk" path="res://Scenes/Prefabs personajes/pj_principal.tscn" id="9_gy3mb"]
 [ext_resource type="Texture2D" uid="uid://ccfpt2506tasn" path="res://Assets/Personajes sprites/5. Attack 131 x 56.png" id="10_nqtdo"]
 [ext_resource type="Texture2D" uid="uid://170mad0j2s20" path="res://Assets/Personajes sprites/8. Death 76 x 48.png" id="11_chclo"]
 [ext_resource type="Texture2D" uid="uid://pdatwr7vlja3" path="res://Assets/Personajes sprites/IdleSanguinario.png" id="12_wpj1i"]
@@ -21,7 +21,7 @@
 [ext_resource type="Resource" uid="uid://1uddqc23xq0m" path="res://TimelinesDialogic/El_Sanguinario.dch" id="16_nan3c"]
 [ext_resource type="Texture2D" uid="uid://dxlapwvib6xv6" path="res://Assets/Principales ASSETS/portal.png" id="16_nqo0h"]
 [ext_resource type="AudioStream" uid="uid://bj7gadepik8pj" path="res://Musica de fondo/A Nocturne for All.mp3" id="16_o477a"]
-[ext_resource type="PackedScene" uid="uid://bn0n0lj4jkgvw" path="res://Scenes/muñeco.tscn" id="27_erpdi"]
+[ext_resource type="PackedScene" uid="uid://bn0n0lj4jkgvw" path="res://Scenes/Prefabs personajes/muñeco.tscn" id="27_erpdi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nan3c"]
 texture = ExtResource("2_ge042")

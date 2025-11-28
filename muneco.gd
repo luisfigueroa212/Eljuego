@@ -10,7 +10,6 @@ func _ready():
 	anim.play("Muñeca")
 
 func recibir_dano(cantidad: float):
-	print("¡Auch! Me pegaste.")
 	
 	# 1. Efecto de Sangre
 	sangre.restart() # Reinicia las partículas

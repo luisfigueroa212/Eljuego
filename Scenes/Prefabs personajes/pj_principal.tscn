@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://lqh6mou2mvp7" path="res://Assets/Personajes sprites/2. Run 48 x 48.png" id="9_vpyn8"]
 [ext_resource type="Texture2D" uid="uid://bsr4x02dqc8o7" path="res://Assets/Principales ASSETS/32x32_Arcane_8.png" id="10_1n4kp"]
 [ext_resource type="Texture2D" uid="uid://cp5r2q7t43l17" path="res://Assets/Personajes sprites/CrimsonFantasyGUI/AnimationSheets/GenericRegeneration/GenericRegeneration-Sheet.png" id="11_6tnjj"]
-[ext_resource type="PackedScene" uid="uid://c1g6xxd7kboc4" path="res://Scenes/Portal.tscn" id="12_wk575"]
+[ext_resource type="PackedScene" uid="uid://c1g6xxd7kboc4" path="res://Scenes/Prefabs personajes/Portal.tscn" id="12_wk575"]
 [ext_resource type="AudioStream" uid="uid://cbgx8aoq3l0gd" path="res://Musica de fondo/SonidoEspada.mp3" id="13_egxhw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqrl3"]

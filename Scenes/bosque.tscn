@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bmcy5cdyknfuh" path="res://Assets/Principales ASSETS/Blasphemous/MovingGrass_Gardens_2.png" id="14_by6y2"]
 [ext_resource type="PackedScene" uid="uid://d000lbx8aoapq" path="res://Scenes/ZonaSalida.tscn" id="15_jleft"]
 [ext_resource type="Texture2D" uid="uid://c0khmgnnd2ps3" path="res://Assets/Principales ASSETS/Blasphemous/MovingGrass_ChurchesField_2.png" id="15_loix4"]
-[ext_resource type="PackedScene" uid="uid://k7oaryn7l6kk" path="res://Scenes/pj_principal.tscn" id="15_p6yx5"]
+[ext_resource type="PackedScene" uid="uid://k7oaryn7l6kk" path="res://Scenes/Prefabs personajes/pj_principal.tscn" id="15_p6yx5"]
 [ext_resource type="Texture2D" uid="uid://niqgd1kmsigw" path="res://Assets/Principales ASSETS/Capa de opacidad (NO ELIMINAR).png" id="18_jbrsv"]
 [ext_resource type="FontFile" uid="uid://b5dp0spri5u83" path="res://Texto fuentes/Minecraft.ttf" id="20_uxdu3"]
 [ext_resource type="Script" uid="uid://j025j8xawylc" path="res://Scripts/El bosque/Texto bosque intro.gd" id="22_s73gh"]
