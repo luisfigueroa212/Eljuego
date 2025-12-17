@@ -531,3 +531,5 @@ position = Vector2(-2, -16)
 
 [node name="SonidoEspada" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_egxhw")
+
+[connection signal="body_entered" from="AnimatedSprite2D/HitboxAtaque" to="." method="_on_hitbox_ataque_body_entered"]

@@ -17,6 +17,7 @@ var can_attack: bool = true               # ¿Está lista la espada?
 # Vida del jugador
 @export var max_health: float = 100.0  # Vida máxima
 var health: float = 100.0              # Vida actual (empieza llena)
+@export var life_steal: float = 5.0
 @export var decay_rate: float = 5.0    # Cuánta vida pierdes por segundo
 var is_dead: bool = false              # Para saber si ya morimos
 @onready var barra_vida_sprite = $CanvasLayer/BarraVidaSprite
@@ -31,7 +32,7 @@ var infection_active: bool = false  # Por defecto apagada
 var normal_speed = SPEED
 var current_speed = SPEED
 var jump_count = 0
-
+var is_invulnerable: bool = false
 # --- NUEVO DASH: Variables de Configuración ---
 @export var dash_speed: float = 400.0   # Velocidad del impulso
 @export var dash_duration: float = 0.3  # Cuánto dura el impulso (segundos)
@@ -39,23 +40,40 @@ var jump_count = 0
 var is_dashing: bool = false            # ¿Estamos dashando ahora?
 var can_dash: bool = true               # ¿Podemos usar el dash?
 var is_in_dialogue: bool = false
+@export var attack_damage: int = 35
 
 func _ready():
 	print("Player listo")
+	
+	# --- CONEXIONES DE DIÁLOGO ---
 	Dialogic.timeline_ended.connect(func():
 		print("✅ FIN DE DIÁLOGO - Iniciando cinemática...")
 	)
-	if get_parent().is_in_group("infectado"):
+	
+	# --- LÓGICA DE INFECCIÓN (Aquí está la magia) ---
+	# Preguntamos al padre (El Nivel) si es peligroso
+	var nivel = get_parent()
+	
+	if nivel.is_in_group("infectado"):
 		infection_active = true
 		print("⚠️ ZONA PELIGROSA: La infección avanza")
+		
+		# ¡RECUPERAMOS EL DATO DEL NIVEL!
+		# Si el nivel tiene la variable configurada, la copiamos.
+		if "nivel_de_infeccion" in nivel:
+			decay_rate = nivel.nivel_de_infeccion
+			print("Intensidad de la radiación: ", decay_rate)
+			
 	else:
 		infection_active = false
 		print("✅ ZONA SEGURA: La infección se detuvo")
 		
+	# --- CONEXIONES DE COMBATE ---
 	hitbox_colision.disabled = true
+	# Recuerda que _controlar_hitbox se encarga también del sonido ahora
 	animationPlayer.frame_changed.connect(_controlar_hitbox)
-	animationPlayer.animation_finished.connect(func(): hitbox_colision.disabled = true)
-	hitbox_ataque.body_entered.connect(_on_hitbox_body_entered)
+	animationPlayer.animation_finished.connect(func(_anim_name): hitbox_colision.disabled = true)
+	hitbox_ataque.body_entered.connect(_on_hitbox_ataque_body_entered)
 
 func _physics_process(delta: float) -> void:
 	
@@ -74,6 +92,12 @@ func _physics_process(delta: float) -> void:
 		atacar = true
 		ejecutar_ataque()
 	
+	if infection_active:
+		health -= decay_rate * delta
+		actualizar_barra_visual()
+		
+		if health <= 0:
+			die()
 	# Si estamos en diálogo
 	if is_in_dialogue:
 		velocity.x = 0
@@ -284,4 +308,54 @@ func _on_hitbox_body_entered(body):
 	# Verificamos si lo que tocamos tiene la función "recibir_dano"
 	if body.has_method("recibir_dano"):
 		body.recibir_dano(10)
-		
+
+func recibir_dano(cantidad: int):
+	# 1. Si ya soy inmortal (me acaban de pegar), ignoro el golpe
+	if is_invulnerable or is_dead:
+		return
+	
+	# 2. Restar vida
+	health -= cantidad
+	print("Auch! Vida restante: ", health)
+	actualizar_barra_visual() # (Si tienes la barra de vida conectada)
+	
+	# 3. Muerte
+	if health <= 0:
+		die()
+		return
+
+	# 4. Activar Inmortalidad temporal (I-Frames)
+	is_invulnerable = true
+	
+	# Efecto visual: Parpadear en rojo (Opcional)
+	modulate = Color(10, 0, 0) # Se pone rojo brillante
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color(1, 1, 1) # Vuelve a normal
+	
+	# Esperar 1 segundo antes de poder ser golpeado de nuevo
+	await get_tree().create_timer(1.0).timeout
+	is_invulnerable = false		
+
+
+func _on_hitbox_ataque_body_entered(body):
+	# 1. ¿Golpeé a un enemigo?
+	if body.is_in_group("enemigos"):
+		# 2. Aplicamos daño al enemigo
+		if body.has_method("recibir_daño"):
+			body.recibir_daño(attack_damage)
+			curar(life_steal)
+
+func curar(cantidad: float):
+	# Sumamos vida
+	health += cantidad
+	
+	# "Clamp" sirve para asegurar que la vida nunca supere el máximo
+	health = clamp(health, 0, max_health)
+	
+	print("¡Robo de vida! Salud actual: ", health)
+	actualizar_barra_visual()
+	
+	# (Opcional) Efecto visual verde al curarse
+	modulate = Color(0, 3, 0) # Flash Verde brillante
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color(1, 1, 1) # Volver a normal

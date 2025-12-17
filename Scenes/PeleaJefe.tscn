@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dblamxetlg87v"]
+[gd_scene load_steps=15 format=4 uid="uid://dblamxetlg87v"]
 
 [ext_resource type="Texture2D" uid="uid://dda3ucc3rldjh" path="res://Assets/Principales ASSETS/Castillo1 (NO ELIMINAR)/PNG/old-dark-castle-interior-background.png" id="1_84eqj"]
 [ext_resource type="Texture2D" uid="uid://c75j7ikq8u41i" path="res://Assets/Principales ASSETS/Castillo2 (NO ELIMINAR)/PNG/layers/gothic-castle-background.png" id="1_n7rbs"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://niqgd1kmsigw" path="res://Assets/Principales ASSETS/Capa de opacidad (NO ELIMINAR).png" id="3_1c4nh"]
 [ext_resource type="Texture2D" uid="uid://tl06tl4jtde4" path="res://Assets/Principales ASSETS/Castillo2 (NO ELIMINAR)/PNG/layers/gothic-castle-tileset.png" id="3_whup8"]
 [ext_resource type="Texture2D" uid="uid://bfk4cnp2nr3ai" path="res://Assets/Principales ASSETS/Castillo1 (NO ELIMINAR)/PNG/old-dark-castle-interior-tileset.png" id="4_yowtm"]
+[ext_resource type="PackedScene" uid="uid://d1drt2pv5q1d" path="res://Scenes/Prefabs personajes/jefazo.tscn" id="7_et2qd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n7rbs"]
 texture = ExtResource("1_n7rbs")
@@ -782,7 +783,10 @@ normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_whup8"]
 
-[node name="Jefazo" type="Node2D" groups=["infectado"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_et2qd"]
+size = Vector2(60, 274)
+
+[node name="PeleaJefe" type="Node2D" groups=["infectado"]]
 
 [node name="Escenario" type="Node2D" parent="."]
 position = Vector2(14, -54)
@@ -823,9 +827,16 @@ texture = ExtResource("3_1c4nh")
 position = Vector2(4, 43)
 
 [node name="Izquierda" type="CollisionShape2D" parent="Fronteras"]
-position = Vector2(-328, -115)
+position = Vector2(-338, -114)
 shape = SubResource("WorldBoundaryShape2D_n7rbs")
 
 [node name="Suelo" type="CollisionShape2D" parent="Fronteras"]
 position = Vector2(-10, 13)
 shape = SubResource("WorldBoundaryShape2D_whup8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fronteras"]
+position = Vector2(1314, -106)
+shape = SubResource("RectangleShape2D_et2qd")
+
+[node name="Jefazo" parent="." instance=ExtResource("7_et2qd")]
+position = Vector2(1122, 3)
