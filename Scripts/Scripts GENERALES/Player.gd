@@ -50,7 +50,15 @@ func _ready():
 		print("✅ FIN DE DIÁLOGO - Iniciando cinemática...")
 	)
 	
-	# --- LÓGICA DE INFECCIÓN (Aquí está la magia) ---
+	# --- CONEXIONES DE COMBATE ---
+	hitbox_colision.disabled = true
+	# Recuerda que _controlar_hitbox se encarga también del sonido ahora
+	animationPlayer.frame_changed.connect(_controlar_hitbox)
+	animationPlayer.animation_finished.connect(func(_anim_name): hitbox_colision.disabled = true)
+	hitbox_ataque.body_entered.connect(_on_hitbox_ataque_body_entered)
+
+func _process(delta):
+		# --- LÓGICA DE INFECCIÓN (Aquí está la magia) ---
 	# Preguntamos al padre (El Nivel) si es peligroso
 	var nivel = get_parent()
 	
@@ -68,12 +76,7 @@ func _ready():
 		infection_active = false
 		print("✅ ZONA SEGURA: La infección se detuvo")
 		
-	# --- CONEXIONES DE COMBATE ---
-	hitbox_colision.disabled = true
-	# Recuerda que _controlar_hitbox se encarga también del sonido ahora
-	animationPlayer.frame_changed.connect(_controlar_hitbox)
-	animationPlayer.animation_finished.connect(func(_anim_name): hitbox_colision.disabled = true)
-	hitbox_ataque.body_entered.connect(_on_hitbox_ataque_body_entered)
+
 
 func _physics_process(delta: float) -> void:
 	

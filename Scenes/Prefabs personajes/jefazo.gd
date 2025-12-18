@@ -18,6 +18,8 @@ var player_target: Node2D = null
 @onready var sprite = $AnimatedSprite2D
 @onready var hitbox_colision = $HitboxMelee/CollisionShape2D # <--- ASEGURATE DE TENER ESTO
 
+signal jefe_derrotado
+
 func _ready():
 	current_health = max_health
 	player_target = get_tree().get_first_node_in_group("player")
@@ -180,15 +182,13 @@ func die():
 	is_busy = true
 	velocity.x = 0
 	
-	# 1. Apagamos sus colisiones físicas (para poder caminar sobre el cadáver)
-	$CollisionShape2D.set_deferred("disabled", true)
+	# --- EMITE LA SEÑAL AQUÍ ---
+	jefe_derrotado.emit() # Esto avisa a quien esté escuchando
 	
-	# 2. Apagamos su espada por si murió atacando
+	$CollisionShape2D.set_deferred("disabled", true)
 	hitbox_colision.set_deferred("disabled", true)
 	
-	# 3. Animación dramática
 	sprite.play("Death")
 	await sprite.animation_finished
 	
-	# 4. Desaparecer (Borrar el nodo)
 	queue_free()
